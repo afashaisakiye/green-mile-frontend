@@ -1,10 +1,28 @@
 import React from "react";
+import {BrowserRouter as Router,Switch,Route , useHistory } from "react-router-dom";
+import SignIn from './../pages/SignIn';
+import Dashboard from './../pages/Dashboard';
+import PackagesPage from './../pages/PackagesPage';
+import Index from './../pages/Index';
 
-class App extends React.Component {
-  render() {
-    const { name } = this.props;
-    return <h1>Hello {name}</h1>;
-  }
+
+export default function App() {
+  return (
+    <Router>
+        <Switch>
+          <Route exact path="/" >
+            <Index />
+          </Route>
+          <Route  path="/sign-in">
+            <SignIn />
+          </Route>
+          <Route path="/packages">
+            <PackagesPage />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+    </Router>
+  );
 }
-
-export default App;
