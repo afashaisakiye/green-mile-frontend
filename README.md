@@ -1,6 +1,5 @@
-# empty-project
-
-Empty project.
+# Green-Mile-Platform
+Tunga JobsInTechProgram Project
 
 ## Building and running on localhost
 
@@ -24,7 +23,9 @@ npm run build-prod
 
 ## Running
 
-Open the file `dist/index.html` in your browser
+```sh
+node dist/bundle.js
+```
 
 ## Credits
 
