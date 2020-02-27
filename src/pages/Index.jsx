@@ -6,7 +6,7 @@ export default function Index() {
     history.push('/sign-in')
     return (
         <div>
-            Index
+            Loading
         </div>
     )
 }
