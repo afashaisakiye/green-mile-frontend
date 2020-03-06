@@ -6,20 +6,20 @@ import '../fonts/fontawesome/css/all.css'
 
 export default function SideMenu() {
     return (
-        <ul class="g-sidebar-nav">
-            <li class="g-sidebar-nav-item">
+        <ul className="g-sidebar-nav">
+            <li className="g-sidebar-nav-item">
                 <Link className="g-sidebar-nav-link" to="/dashboard" >
-                    <i class="fas fa-tachometer"></i>
+                    <i className="fas fa-tachometer"></i>
                 </Link>
             </li>
-            <li class="g-sidebar-nav-item">
-                <Link class="g-sidebar-nav-link active" to="/packages">
-                <i class="fas fa-box-open"></i>
+            <li className="g-sidebar-nav-item">
+                <Link className="g-sidebar-nav-link active" to="/packages">
+                <i className="fas fa-box-open"></i>
                 </Link>
             </li>
-            <li class="g-sidebar-nav-item">
-                <Link class="g-sidebar-nav-link" to="users">
-                <i class="fas fa-users"></i>
+            <li className="g-sidebar-nav-item">
+                <Link className="g-sidebar-nav-link" to="users">
+                <i className="fas fa-users"></i>
                 </Link>
             </li>
         </ul>
