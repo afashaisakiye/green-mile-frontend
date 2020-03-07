@@ -5,27 +5,18 @@ import Dashboard from '../pages/Dashboard';
 import PackagesPage from '../pages/PackagesPage';
 import Index from '../pages/Index';
 import CreateSuplier from './../pages/CreateSuplier';
+import PrivateRoute from './PrivateRoute';
 
 
 export default function App() {
   return (
     <Router>
         <Switch>
-          <Route exact path="/" >
-            <Index />
-          </Route>
-          <Route  path="/sign-in">
-            <SignIn />
-          </Route>
-          <Route path="/packages">
-            <PackagesPage />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route exact path="/supliers/add">
-            <CreateSuplier />
-          </Route>
+        <Route  path="/sign-in"><SignIn/></Route>
+          <PrivateRoute exact path="/" authed={false} component={Index} />
+          <PrivateRoute exact path="/packages" authed={false} component={PackagesPage} />
+          <PrivateRoute exact path="/dashboard" authed={false} component={Dashboard} />
+          <PrivateRoute exact path="/supliers/add" authed={false} component={CreateSuplier} />
         </Switch>
     </Router>
   );
