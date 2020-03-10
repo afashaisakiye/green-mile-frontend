@@ -5,15 +5,21 @@
   "main": "src/index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "clean": "rm dist/bundle.js",
     "start": "parcel public/index.html --host 127.0.0.1 --port 8080",
     "build-prod": "parcel build public/index.html"
   },
   "dependencies": {
+    "bootstrap": "^4.4.1",
+    "fo": "^0.1.1",
     "react": "^16.13.0",
     "react-dom": "^16.12.0",
+    "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
@@ -23,6 +29,7 @@
     "@babel/preset-react": "^7.8.3",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1",
-    "sass": "^1.26.2"
+    "sass": "^1.26.1"
+
   }
 }
