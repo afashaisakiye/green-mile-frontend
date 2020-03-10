@@ -3,7 +3,7 @@ import "../signin.scss"
 
 export default function SignIn() {
     return (
-        <form action="action_page.php" method="post" class="sign-in">
+        <form class="sign-in">
             <div class="imgcontainer">
                 <img  class="img" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190710102234/download3.png" alt="avatar" />
             </div>

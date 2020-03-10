@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import { useLocation } from "react-router";
 import AuthContextProvider from "./../context/AuthContext";
-import SignIn from "../pages/SignIn";
-import PackagesPage from "../pages/PackagesPage";
-import Index from "../pages/Index";
-import CreateSuplier from "./../pages/CreateSuplier";
 import PrivateRoute from "./PrivateRoute";
 import SideMenu from "./SideMenu";
 import SummaryCard from "./SummaryCard";
+//Pages
+import SignIn from "../pages/SignIn";
+import PackagesPage from "../pages/PackagesPage";
+import UsersPage  from "../pages/UsersPage"
+import Index from "../pages/Index";
+import CreateSuplier from "./../pages/CreateSuplier";
 
 export default function App(props) {
   const location = useLocation();
@@ -70,6 +72,10 @@ export default function App(props) {
   if (location.pathname == "/sign-in") {
     return (
       <Switch>
+        {
+          pathname!== "/" && (/\/$/).test(pathname) &&
+          <Redirect to={pathname.slice(0, -1)} />
+        }
         <AuthContextProvider>
           <Route path="/sign-in" exact>
             <SignIn />
@@ -87,12 +93,9 @@ export default function App(props) {
               <SummaryCard heading={sumaryHeading} data={data} />
             </div>
             <PrivateRoute exact path="/" component={Index} />
-            <PrivateRoute exact path="/packages" component={PackagesPage} />
-            <PrivateRoute
-              exact
-              path="/supliers/add"
-              component={CreateSuplier}
-            />
+            <PrivateRoute  path="/packages" component={PackagesPage} />
+            <PrivateRoute exact path="/users" component={ UsersPage } />
+            <PrivateRoute exact path="/supliers/add" component={CreateSuplier} />
           </div>
         </AuthContextProvider>
       </Switch>
