@@ -1,15 +1,23 @@
 form {
-    border: 3px solid #f1f1f1;
+    border: 3px solid #0d9191;
+    align-items: center;
+    padding: 20px;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.sign-in {
+    border-style: solid;
+    text-justify: auto;
 }
 
 input[type=text], input[type=password] {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
+  padding: 12px;
+  margin: 4px 0;
+  display: -ms-flexbox;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  align-items: flex;
 }
 
 button {
@@ -17,7 +25,7 @@ button {
   color: white;
   padding: 16px 32px;
   margin: 4px 2px;
-  border: none;
+  border-radius: 8px;
   cursor: pointer;
   text-decoration: dotted;
   justify-content: center;
@@ -33,10 +41,21 @@ button:hover {
   background-color: #f44336;
 }
 
+.imgcontainer { 
+    text-align: center; 
+    margin: 24px 0 12px 0;
+} 
+/*set image properties*/ 
+  
+.img { 
+    width: 40%; 
+    border-radius: 40%;
+} 
 
 .container {
   padding: 16px;
   border-radius: 0;
+  text-align: center;
 }
 
 span.psw {
@@ -48,7 +67,7 @@ span.psw {
 @media screen and (max-width: 300px) {
   span.psw {
      display: block;
-     float: none;
+     float: left;
   }
   .cancelbtn {
      width: 100%;
