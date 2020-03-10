@@ -73,7 +73,6 @@ export default function App(props) {
         <AuthContextProvider>
           <Route path="/sign-in" exact>
             <SignIn />
-            <h1>sign in</h1>
           </Route>
         </AuthContextProvider>
       </Switch>
