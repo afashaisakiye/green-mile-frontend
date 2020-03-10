@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function SignIn() {
+function MainLayout() {
     return (
         <div>
-            <input type="text"/>
+            
         </div>
     )
 }
+
+export default MainLayout
