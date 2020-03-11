@@ -1,7 +1,7 @@
 import React ,{ useState,useEffect } from 'react'
 import {Link } from 'react-router-dom'
 
-import '../fonts/fontawesome/css/all.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 
 export default function SideMenu(props) {
     const [menu, setMenu] = useState({
