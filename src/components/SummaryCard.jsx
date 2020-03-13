@@ -1,7 +1,15 @@
 import React,{ useState } from 'react'
+import { useContext } from 'react';
+import { UIContext } from './../context/UIContext';
 
-export default function SummaryCard({heading,data}) {
+export default function SummaryCard() {
+    const {heading,data} =useContext(UIContext)
     const total=[];
+    
+    if(heading==undefined){
+        return <></>
+    }
+    
     return (
         <div className="card g-pack-sum">
             <h4>{heading}</h4>
