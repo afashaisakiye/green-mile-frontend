@@ -1,6 +1,7 @@
 import React from 'react';
 import Logout from './../components/Logout';
 import Pagination from './../components/Pagination';
+import UsersList from './../components/UsersList';
 
 function UsersPage() {
     return (
@@ -9,7 +10,7 @@ function UsersPage() {
                 <Logout />
             </div>
             <div className="table-container">
-                users table
+                <UsersList />
                 <Pagination />
             </div>
         </div>
