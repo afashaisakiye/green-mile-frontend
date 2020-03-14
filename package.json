@@ -10,8 +10,10 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls --passWithNoTests",
     "test": "jest",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "clean": "rm dist/bundle.js",
     "start": "parcel public/index.html --host 127.0.0.1 --port 8080",
     "build-prod": "parcel build public/index.html"
