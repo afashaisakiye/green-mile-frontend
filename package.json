@@ -10,9 +10,20 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "test": "jest",
     "clean": "rm dist/bundle.js",
     "start": "parcel public/index.html --host 127.0.0.1 --port 8080",
     "build-prod": "parcel build public/index.html"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+        "**/*.js",
+        "!data/keyMap.js",
+        "!/node_modules/"
+    ]
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
@@ -21,16 +32,24 @@
     "font": "0.0.4",
     "fontawesome": "^5.6.3",
     "fot": "^1.4.3",
+    "jest-coverage-badges": "^1.1.2",
     "react": "^16.13.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
+    "@testing-library/dom": "^7.0.3",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^10.0.1",
+    "@testing-library/user-event": "^10.0.0",
+    "babel-jest": "^25.1.0",
+    "coveralls": "^3.0.9",
+    "jest": "^25.1.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1",
     "sass": "^1.26.1"
