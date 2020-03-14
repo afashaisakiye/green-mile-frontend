@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/afashaisakiye/Green-Mile-Platform/badge.svg?branch=master)](https://coveralls.io/github/afashaisakiye/Green-Mile-Platform?branch=master)
+
 # Green-Mile-Platform
 Tunga JobsInTechProgram Project
 
