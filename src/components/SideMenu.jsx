@@ -1,6 +1,5 @@
 import React ,{ useState,useContext } from 'react'
 import {Link } from 'react-router-dom'
-import '@fortawesome/fontawesome-free/css/all.css'
 import { UIContext } from './../context/UIContext';
 
 export default function SideMenu(props) {

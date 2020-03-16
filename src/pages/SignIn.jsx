@@ -1,5 +1,4 @@
 import React from 'react'
-import "../signin.scss"
 
 export default function SignIn() {
     return (
@@ -18,7 +17,6 @@ export default function SignIn() {
             <div className="container">
                 <button type="button" className="cancelbtn">Cancel</button>
                 <span className="passsword">Forgot <a href="#">password?</a></span>
-
             </div>
         </form>
     )
