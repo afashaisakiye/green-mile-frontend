@@ -2,7 +2,7 @@ import React from 'react';
 import Logout from './../components/Logout';
 import Pagination from './../components/Pagination';
 import UsersList from './../components/UsersList';
-
+import UserContextProvider from './../context/UserContext'
 function UsersPage() {
     return (
             <div className="g-col" >
@@ -14,8 +14,10 @@ function UsersPage() {
                 <Logout />
             </div>
             <div className="table-container">
-                <UsersList />
-                <Pagination />
+            <UserContextProvider>
+            <UsersList/>
+            <Pagination />
+            </UserContextProvider>
             </div>
         </div>
         

@@ -45,6 +45,10 @@ function UIContextProvider(props) {
         title: "Admins",
         number: 2,
         color: "primary"
+      },{
+        title: "Hub Managers",
+        number: 3,
+        color: "primary"
       },
       {
         title: "Supliers",
