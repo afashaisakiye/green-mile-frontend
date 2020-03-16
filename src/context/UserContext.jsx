@@ -3,11 +3,29 @@ import React, { createContext, useState } from "react";
 export const UserContext = createContext();
 
 function UserContextProvider(props) {
-        const [users, setUsers] = useState([
+    const [userRoles, setRoles]= useState([
+        {
+            id:1,
+            name:"Admin",
+        },
+        {
+            id:2,
+            name:"Hub Manager"
+        },
+        {
+            id:3,
+            name:"Suplier"
+        },
+        {
+            id:4,
+            name:"Loader"
+        }
+    ])
+    const [users, setUsers] = useState([
         {
             id:2,
             name:'Isakiye Afasha',
-            role_id:3,
+            role_id:4,
             email:'afashaisakiye@gmail.com',
             phone:'256783062777',
             status:'pending'
@@ -16,6 +34,7 @@ function UserContextProvider(props) {
             id:1,
             name:'Lubanga Rogers',
             role_id:3,
+
             email:'luba@gmail.com',
             phone:'256783062677',
             status:'active'
@@ -23,7 +42,7 @@ function UserContextProvider(props) {
     ]);
 
     return (
-    <UserContext.Provider value={{ users }}>
+    <UserContext.Provider value={{ users , userRoles }}>
         {props.children}
     </UserContext.Provider>
     );
