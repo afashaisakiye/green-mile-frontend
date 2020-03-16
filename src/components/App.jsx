@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState , useContext } from "react";
 import { Switch, Route } from "react-router-dom";
-import { useLocation } from "react-router";
 import AuthContextProvider from "./../context/AuthContext";
 import PrivateRoute from "./PrivateRoute";
+import {UIContext} from  "./../context/UIContext"
 import SideMenu from "./SideMenu";
 import SummaryCard from "./SummaryCard";
 //Pages
@@ -11,94 +11,37 @@ import PackagesPage from "../pages/PackagesPage";
 import UsersPage  from "../pages/UsersPage"
 import Index from "../pages/Index";
 import CreateSuplier from "./../pages/CreateSuplier";
+import NotFound from './../pages/NotFound';
 
 export default function App(props) {
-  const location = useLocation();
-  const [packages_data, setPackagesData] = useState([
-    {
-      title: "To City Hub",
-      number: 6,
-      color: "primary"
-    },
-    {
-      title: "Rebundling",
-      number: 7,
-      color: "secondary"
-    },
-    {
-      title: "On Fleet",
-      number: 4,
-      color: "info"
-    },
-    {
-      title: "Delivered",
-      number: 3,
-      color: "success"
-    }
-  ]);
+  const {pathname} = useContext(UIContext);
+  
+  if (pathname == "/sign-in") {
 
-  const [users_data, setUsersData] = useState([
-    {
-      title: "Admins",
-      number: 2,
-      color: "primary"
-    },
-    {
-      title: "Supliers",
-      number: 3,
-      color: "secondary"
-    },
-    {
-      title: "Loaders",
-      number: 9,
-      color: "info"
-    }
-  ]);
-  let sumaryHeading;
-  let data;
-  switch (location.pathname) {
-    case "/packages":
-      data = packages_data;
-      sumaryHeading = "Packages";
-      break;
-    case "/users":
-      data = users_data;
-      sumaryHeading = "Users";
-      break;
-    default:
-      const display_side_bar = false;
-      break;
-  }
-  if (location.pathname == "/sign-in") {
     return (
+      <AuthContextProvider>
       <Switch>
-        {
-          pathname!== "/" && (/\/$/).test(pathname) &&
-          <Redirect to={pathname.slice(0, -1)} />
-        }
-        <AuthContextProvider>
-          <Route path="/sign-in" exact>
-            <SignIn />
-          </Route>
-        </AuthContextProvider>
+          <Route path="/sign-in" exact><SignIn /></Route>
       </Switch>
+      </AuthContextProvider>
     );
   } else {
     return (
-      <Switch>
         <AuthContextProvider>
           <div className="flex-box">
             <div className="menu">
               <SideMenu />
-              <SummaryCard heading={sumaryHeading} data={data} />
+              <SummaryCard />
             </div>
+            <Switch>
             <PrivateRoute exact path="/" component={Index} />
-            <PrivateRoute  path="/packages" component={PackagesPage} />
+            <PrivateRoute exact path="/packages" component={PackagesPage} />
             <PrivateRoute exact path="/users" component={ UsersPage } />
             <PrivateRoute exact path="/supliers/add" component={CreateSuplier} />
+            <PrivateRoute exact path='*' component={NotFound} />
+            </Switch>
           </div>
         </AuthContextProvider>
-      </Switch>
     );
   }
 }

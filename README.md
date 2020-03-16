@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/afashaisakiye/Green-Mile-Platform.svg?branch=master)](https://travis-ci.org/taniarascia/chip8) [![Coverage Status](https://coveralls.io/repos/github/afashaisakiye/Green-Mile-Platform/badge.svg?branch=refactor-code)](https://coveralls.io/github/afashaisakiye/Green-Mile-Platform?branch=refactor-code)
+
 # Green-Mile-Platform
 Tunga JobsInTechProgram Project
 

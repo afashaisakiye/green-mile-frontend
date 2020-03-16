@@ -2,8 +2,6 @@ import React from 'react'
 import SideMenu from './../components/SideMenu';
 import PackagesSummary from './../components/PackagesSummary';
 import Logout from './../components/Logout';
-import PackageList from './../components/PackageList';
-import Pagination from './../components/Pagination';
 
 export default function Dashboard() {
     return (
