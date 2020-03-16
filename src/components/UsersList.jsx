@@ -1,6 +1,9 @@
-import React from 'react'
+import React ,{ useContext } from 'react'
+import { UserContext } from './../context/UserContext';
+import UserListItem from './UserListItem';
 
 export default function UsersList() {
+    const { users } =useContext( UserContext )
     return (
         <table className="table table-bordered table-striped table-borderless package-list">
         <thead>
@@ -16,20 +19,9 @@ export default function UsersList() {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>23</td>
-                <td>Isakiye Afasha</td>
-                <td>25678306277</td>
-                <td>Kampala</td>
-                <td>Admin</td>
-                <td>pending</td>
-                <td>
-                    <i className="fa fa-trash" aria-hidden="true"></i>
-                    <i className="fa fa-edit" aria-hidden="true"></i>
-                     <span>More...</span>
-                </td>
-            </tr>
-
+            { users.map((user,index)=>{
+                return <UserListItem user={user} key={index} />
+            }) }
         </tbody>
     </table>
     )
