@@ -1,21 +1,26 @@
 $flex-box:flex;
-$primary-color:rgb(139, 143, 139);
-$other-color:rgb(180, 180, 180);
-
-#app{
+$primary-color:rgba(255, 0, 0, 0.63);
+$other-color:rgba(12, 163, 12, 0.445);
+$side-modal-width:25%;
+$side-modal-width-no-sum-card:7%;
+body{
     background: $other-color;
+}
+#app{
+    display: block;
+    position:relative;
 }
 .flex-box{
     display: $flex-box;
     position: relative;
-    height: 100vh;
     .menu{
         display: flex;
-        width: 25%;
-        max-width: 25%;
+        max-width: $side-modal-width;
         justify-content: space-between;
+        height: 100vh;
+        position: fixed;
         .g-sidebar-nav{
-            background: white;
+            background:white;
             margin-bottom: unset;
             border-right:1px solid lighten($color: $primary-color, $amount: 60);
             list-style: none;
@@ -39,11 +44,13 @@ $other-color:rgb(180, 180, 180);
         }
 
         .g-pack-sum{
+            
             margin-top:30px;
             padding: 1em 1.8em;
             height: fit-content;
             flex-grow: 1;
             max-width: 70%;
+            width:280px;
             .badge{
                 justify-content: center;
                 align-items: center;
@@ -77,9 +84,10 @@ $other-color:rgb(180, 180, 180);
     .g-col{
         flex-grow: 1;
         margin: 30px;
-        background: white;
+        margin-left: $side-modal-width;
         padding: 0.5em 01em;
         .table-container{
+            background: white;
             margin-top: 15px;
             max-height: 80%;
             display: flex;
@@ -103,5 +111,15 @@ $other-color:rgb(180, 180, 180);
                 }
             }
         }
+    }
+
+    .g-col.no-sumary-card{
+        margin-left: $side-modal-width-no-sum-card;
+        display: flex;
+        justify-content: center;
+        .user-form{
+            width: 1000px;
+         max-width:70%;
+     }
     }
 }
