@@ -1,7 +1,6 @@
 .cache/
 coverage/
-dist/*
-!dist/index.html
+dist/
 node_modules/
 src/fonts/
 *.log
@@ -15,3 +14,7 @@ src/fonts/
 ehthumbs.db
 Thumbs.db
 v8-compile-cache-0/
+
+
+# VS code
+.vscode/
