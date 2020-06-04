@@ -1,5 +1,5 @@
 import React, {useState ,useContext, useHistory} from "react";
-import log from '../../public/img/log.png'
+import logo from './../../public/img/logo.png'
 import { signInUser} from './../utils/api';
 import { AuthContext } from './../context/AuthContext';
 import { Redirect } from 'react-router-dom';
@@ -46,7 +46,7 @@ export default function SignIn(props) {
         </div>
       </div>
       <div className="sign-in">
-        <img className="img" src={log} alt="avatar" />
+        <img className="img" src={logo} alt="avatar" />
         <form onSubmit={submit} >
           <input  type="email" placeholder="Enter Email" name="username" required />
           <input name="password" type="password" placeholder="Enter Password" required />
