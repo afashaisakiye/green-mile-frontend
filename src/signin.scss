@@ -1,71 +1,87 @@
-form.sign-in {
-    border: 3px solid #0d9191;
-    align-items: center;
-    padding: 20px;
-    width: 30%;
-    margin: 0 auto;
-    text-justify: auto;
+.sign-in-container {
+  display: flex;
+  justify-content: flex-end;
+  background:white;
+}
 
-    input[type=text], input[type=password] {
-      width: 100%;
-      padding: 12px;
-      margin: 4px 0;
-      display: -ms-flexbox;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-    
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 16px 32px;
-      margin: 4px 2px;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: dotted;
-      justify-content: center;
-    }
-    
-    button:hover {
-      opacity: 0.8;
-    }
-    
-    .cancelbtn {
-      width: auto;
-      padding: 10px 18px;
-      background-color: #f44336;
-    }
-    
-    .imgcontainer { 
-        text-align: center; 
-        margin: 24px 0 12px 0;
-    } 
-    /*set image properties*/ 
-      
-    .img { 
-        width: 40%; 
-        border-radius: 40%;
-    } 
-    
-    .container {
-      padding: 16px;
-      border-radius: 0;
-      text-align: center;
-    }
-    
-    span.psw {
-      float: right;
-      padding-top: 16px;
-    }
-
-    /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: left;
+div.sign-in {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  background:#ffffffff;
+  padding:0px 1%;
+  width: 42%; 
+  min-width: 300px;
+  height:100vh;
+  >*{
+    padding:0.8em 0px;
   }
-  .cancelbtn {
-     width: 100%;
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 4px 0;
+    display: -ms-flexbox;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color:#359559;
+    color: white;
+    padding: 0.5em 2em;
+    margin: 4px 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    border:1px solid rgba(169, 240, 5); 
   }
 }
+
+.right{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: center;
+  height:100vh;
+  padding: 2em;
+  background-image: url('../public/img/road_big.jpg');
+  background-attachment: fixed;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  >div{
+    padding:0px 14px 14px 14px;
+    color:white;
+    border-radius: 2px;
+  }
+  .other-users{
+    color:rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.936);
+    width:50%;
+    >p{
+      padding-top:0.7em;
+      color: rgb(1, 160, 80);
+    }
+    .users{
+      color:rgb(48, 48, 48);
+      .user-card{
+        background: white;
+        margin:5px 0px;
+        cursor: pointer;
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding:0.5em 2em;
+        border-bottom: 1px solid rgba(43, 255, 0, 0.521);
+        .email{
+          color:rgb(46, 46, 46);
+        }
+      }
+      .user-card:hover{
+          background: rgba(43, 255, 0, 0.221);
+        
+      }
+    }
+  }
 }
