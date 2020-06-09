@@ -1,5 +1,6 @@
 .cache/
 coverage/
+dist/
 node_modules/
 src/fonts/
 *.log
