@@ -1,9 +1,9 @@
 import React, { useContext} from 'react'
-import { UserContext } from './../context/UserContext';
-import CustomLink from './core/Link';
+import { UsersContext } from './../context/UsersContext';
+import {Link } from 'react-router-dom'
 
 function UserListItem({user}) {
-    const { userRoles,DeleteUser} = useContext(UserContext)
+    const { usersRoles,DeleteUser} = useContext(UsersContext)
     const [{name:role}]=userRoles.filter((role)=>(role.id==user.accountType))
     const delete_user=(e)=>{
       const x=confirm("Are you sure you want to delete "+user.firstName + " " + user.secondName)
@@ -22,7 +22,7 @@ function UserListItem({user}) {
           <div className="action">
             <i onClick={delete_user} className="fa fa-trash" aria-hidden="true"></i>
             <i className="fa fa-edit" aria-hidden="true"></i>
-            <CustomLink to={'/user/'+user.id} >View</CustomLink>
+            <Link to={'/user/'+user.id} >View</Link>
           </div>
         </td>
       </tr>
