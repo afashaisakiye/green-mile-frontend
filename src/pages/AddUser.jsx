@@ -1,11 +1,11 @@
 import React, { useState, useContext, useHistory } from "react";
-import { UserContext } from "./../context/UserContext";
+import { UsersContext } from "./../context/UsersContext";
 import RolesDropDown from "../components/RolesDropDown";
 
 const AddUser = () => {
   const [newUser, setnewUser] = useState({});
   const [accountType, setAccountType] = useState("");
-  const { AddUsers } = useContext(UserContext);
+  const { AddUsers } = useContext(UsersContext);
   let x;
 
   const saveHandler = e => {

@@ -1,6 +1,6 @@
 import React, { createContext, useState, useReducer, useEffect } from "react";
 
-export const UserContext = createContext();
+export const UsersContext = createContext();
 
 const userReducer = (state, action) => {
   switch (action.type) {
@@ -18,8 +18,8 @@ const userReducer = (state, action) => {
   }
 };
 
-const UserContextProvider=(props)=> {
-  const [userRoles, setRoles] = useState([
+const UsersContextProvider=(props)=> {
+  const [usersRoles, setUsersRoles] = useState([
     {
       id: 1,
       name: "Admin"
@@ -73,10 +73,10 @@ const UserContextProvider=(props)=> {
   },[])
 
   return (
-    <UserContext.Provider value={{ users, userRoles, AddUsers, DeleteUser,getUser,userDispatch }}>
+    <UsersContext.Provider value={{ users, usersRoles, AddUsers, DeleteUser,getUser,userDispatch }}>
       {props.children}
-    </UserContext.Provider>
+    </UsersContext.Provider>
   );
 }
 
-export default UserContextProvider;
+export default UsersContextProvider;
