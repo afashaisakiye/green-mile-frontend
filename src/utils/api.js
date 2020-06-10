@@ -22,6 +22,13 @@ export const signInUser = async (email,password) => {
     };
 };
 
+export const accountTypeInfo = async (account_type_id) => {
+    const response = await fetch(
+    `https://my-json-server.typicode.com/afashaisakiye/api/roles/${account_type_id}`,
+    );
+    const account_type = await response.json();
+    return account_type;
+};
 
 export const getListsForUser = async(user_type)=>{
     const response = await fetch(
