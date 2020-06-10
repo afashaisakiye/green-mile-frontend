@@ -19,12 +19,12 @@ import userPage from './../pages/userPage';
 
 export default function App(props) {
 const { authed} = useContext(AuthContext);
-const { sidemenu, setsidemenu}=useContext(UIContext);
+const { sidemenu, setPathName}=useContext(UIContext);
     return (
       <div className="flex-box">
         {authed && (
           <div  className="menu">
-          <SideMenu setMenu={setsidemenu} menu={sidemenu} />
+          <SideMenu updatePathName={setPathName} menu={sidemenu} />
         </div>
         )}
         <Switch>

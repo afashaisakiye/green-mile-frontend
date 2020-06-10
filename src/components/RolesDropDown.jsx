@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { UserContext } from './../context/UserContext';
+import { UsersContext } from './../context/UsersContext';
 
 const RolesDropDown=({setRole})=>{
-    const { userRoles } = useContext(UserContext)
+    const { usersRoles } = useContext(UsersContext)
     return (
         <div className="mb-3">
             <label htmlFor="country">Account Type</label>
@@ -12,7 +12,7 @@ const RolesDropDown=({setRole})=>{
               className="custom-select"
             >
               <option value="">Choose...</option>
-              {userRoles.map((role)=>{
+              {usersRoles.map((role)=>{
               return <option key={role.id} value={role.id}>{role.name}</option>
               })}
             </select>

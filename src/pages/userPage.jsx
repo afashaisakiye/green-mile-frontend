@@ -1,9 +1,9 @@
 import React,{ useContext}  from 'react'
 import { useParams } from 'react-router'
-import { UserContext } from './../context/UserContext';
+import { UsersContext } from './../context/UsersContext';
 function userPage() {
     let { id } = useParams();
-    const {getUser} = useContext(UserContext);
+    const {getUser} = useContext(UsersContext);
     const user=getUser(id);
     return (
         <div className="g-col no-sumary-card">

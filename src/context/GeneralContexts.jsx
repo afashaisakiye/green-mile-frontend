@@ -1,17 +1,17 @@
 import React from 'react'
 import UIContextProvider from './UIContext';
-import UserContextProvider from './UserContext';
+import UsersContextProvider from './UsersContext';
 import AuthContextProvider from './AuthContext';
 
 function GeneralContexts(props) {
     return (
       <>
         <AuthContextProvider>
-          <UserContextProvider>
+          <UsersContextProvider>
             <UIContextProvider>
             {props.children}
             </UIContextProvider>
-          </UserContextProvider>
+          </UsersContextProvider>
         </AuthContextProvider>
       </>
     );
