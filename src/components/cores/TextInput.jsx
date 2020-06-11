@@ -1,8 +1,8 @@
 import React from 'react'
 
-function TextInput({onChange, label, placeholder, optional}) {
+function TextInput({onChange, label, placeholder, optional, half}) {
     return (
-        <div className="mb-3">
+        <div className={ half?"col-md-6 ":""+"mb-3"}>
         <label htmlFor="email">
         <span>{label}</span> <span className="text-muted">{optional?"(optional)":""}</span>
         </label>
