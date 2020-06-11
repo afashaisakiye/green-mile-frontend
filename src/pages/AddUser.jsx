@@ -2,12 +2,11 @@ import React, { useState, useContext, useHistory } from "react";
 import { UsersContext } from "./../context/UsersContext";
 import RolesDropDown from "../components/RolesDropDown";
 import Input from "./../components/cores/Input";
+import { addUserFeilds } from "./../utils/ui";
 
 const AddUser = () => {
   const [newUser, setnewUser] = useState({});
   const { AddUsers } = useContext(UsersContext);
-  let x;
-
   const saveHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -19,22 +18,14 @@ const AddUser = () => {
         <h2>Create User Account</h2>
         <form onSubmit={saveHandler}>
           <div className="row">
-            <Input
-              half={true}
-              type="text"
-              placeholder="First name"
-              label="First name"
-              optional={false}
+            <Input 
+            {...addUserFeilds["first_name"]}
               onChange={(e) => {
                 setnewUser({ ...newUser, firstName: e.target.value });
               }}
             />
             <Input
-              half={true}
-              type="text"
-              placeholder="Last name"
-              label="Last name"
-              optional={false}
+              {...addUserFeilds["last_name"]}
               onChange={(e) => {
                 setnewUser({ ...newUser, secondName: e.target.value });
               }}
