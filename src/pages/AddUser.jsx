@@ -1,6 +1,7 @@
 import React, { useState, useContext, useHistory } from "react";
 import { UsersContext } from "./../context/UsersContext";
 import RolesDropDown from "../components/RolesDropDown";
+import TextInput from './../components/cores/TextInput';
 
 const AddUser = () => {
   const [newUser, setnewUser] = useState({});
@@ -17,37 +18,10 @@ const AddUser = () => {
 
   if (accountType == "3") {
     x = (
-      <div>
         <div className="suplier">
-          <div className="mb-3">
-            <label htmlFor="email">
-              Company <span className="text-muted">(Optional)</span>
-            </label>
-            <input
-              onChange={e => {
-                setnewUser({ ...newUser, companyName: e.target.value });
-              }}
-              type="text"
-              className="form-control"
-              placeholder="Company.Inc"
-            />
-          </div>
-
-          <div className="mb-3">
-            <label htmlFor="email">
-              Company domain<span className="text-muted">(Optional)</span>
-            </label>
-            <input
-              onChange={e => {
-                setnewUser({ ...newUser, companyDomain: e.target.value });
-              }}
-              type="text"
-              className="form-control"
-              placeholder="Comapny Domain"
-            />
-          </div>
+          <TextInput placeholder="Company.Inc" label="Comapny Name" optional={true} onChange={e =>{setnewUser({ ...newUser, companyName: e.target.value });}}  />
+          <TextInput placeholder="Comapny Domain" label="Company domain" optional={true} onChange={e =>{setnewUser({ ...newUser, companyDomain: e.target.value });}}  />
         </div>
-      </div>
     );
   }
 
