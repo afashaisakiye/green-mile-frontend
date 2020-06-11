@@ -1,7 +1,7 @@
 import React, { useState, useContext, useHistory } from "react";
 import { UsersContext } from "./../context/UsersContext";
 import RolesDropDown from "../components/RolesDropDown";
-import TextInput from './../components/cores/TextInput';
+import Input from './../components/cores/Input';
 
 const AddUser = () => {
   const [newUser, setnewUser] = useState({});
@@ -19,8 +19,8 @@ const AddUser = () => {
   if (accountType == "3") {
     x = (
         <div className="suplier">
-          <TextInput  placeholder="Company.Inc" label="Comapny Name" optional={true} onChange={e =>{setnewUser({ ...newUser, companyName: e.target.value });}}  />
-          <TextInput placeholder="Comapny Domain" label="Company domain" optional={true} onChange={e =>{setnewUser({ ...newUser, companyDomain: e.target.value });}}  />
+          <Input  placeholder="Company.Inc" label="Comapny Name" optional={true} onChange={e =>{setnewUser({ ...newUser, companyName: e.target.value });}}  />
+          <Input placeholder="Comapny Domain" label="Company domain" optional={true} onChange={e =>{setnewUser({ ...newUser, companyDomain: e.target.value });}}  />
         </div>
     );
   }
@@ -32,40 +32,11 @@ const AddUser = () => {
         <br />
         <form onSubmit={saveHandler}>
           <div className="row">
-          <TextInput half={true}  placeholder="First name" label="First name" optional={false} onChange={e =>{setnewUser({...newUser, firstName: e.target.value });}}  />
-          <TextInput half={true}  placeholder="Last name" label="Last name" optional={false} onChange={e =>{setnewUser({...newUser, secondName: e.target.value});}}  />
+          <Input half={true}  type="text"  placeholder="First name" label="First name" optional={false} onChange={e =>{setnewUser({...newUser, firstName: e.target.value });}}  />
+          <Input half={true}   type="text" placeholder="Last name" label="Last name" optional={false} onChange={e =>{setnewUser({...newUser, secondName: e.target.value});}}  />
           </div>
-
-          <div className="mb-3">
-            <label htmlFor="email">
-              Email <span className="text-muted">(required)</span>
-            </label>
-            <input
-              onChange={e => {
-                setnewUser({ ...newUser, email: e.target.value });
-              }}
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="you@example.com"
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <label htmlFor="tel">
-              Phone Number <span className="text-muted">(required)</span>
-            </label>
-            <input
-              onChange={e => {
-                setnewUser({ ...newUser, phone: e.target.value });
-              }}
-              type="tel"
-              className="form-control"
-              placeholder="256 782 000 000"
-              required
-            />
-          </div>
+          <Input type="text" placeholder="you@example.com" label="Email" onChange={e =>{setnewUser({ ...newUser, email: e.target.value});}}  />
+          <Input type="tel" placeholder="256 782 000 000" label="Phone Number" onChange={e =>{setnewUser({  ...newUser, phone: e.target.value });}}  />
           <RolesDropDown
             setRole={e => {
               setnewUser({ ...newUser, accountType: e.target.value });
@@ -74,12 +45,9 @@ const AddUser = () => {
           />
           {x}
           <button className="btn btn-primary btn-lg btn-block" type="submit">
-            Add User
+            Submit User
           </button>
         </form>
-        <br />
-        <br />
-        <br />
       </div>
     </div>
   );
