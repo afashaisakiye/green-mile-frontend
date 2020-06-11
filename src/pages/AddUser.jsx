@@ -19,7 +19,7 @@ const AddUser = () => {
   if (accountType == "3") {
     x = (
         <div className="suplier">
-          <TextInput placeholder="Company.Inc" label="Comapny Name" optional={true} onChange={e =>{setnewUser({ ...newUser, companyName: e.target.value });}}  />
+          <TextInput  placeholder="Company.Inc" label="Comapny Name" optional={true} onChange={e =>{setnewUser({ ...newUser, companyName: e.target.value });}}  />
           <TextInput placeholder="Comapny Domain" label="Company domain" optional={true} onChange={e =>{setnewUser({ ...newUser, companyDomain: e.target.value });}}  />
         </div>
     );
@@ -32,31 +32,8 @@ const AddUser = () => {
         <br />
         <form onSubmit={saveHandler}>
           <div className="row">
-            <div className="col-md-6 mb-3">
-              <label htmlFor="firstName">First name</label>
-              <input
-                onChange={e => {
-                  setnewUser({ ...newUser, firstName: e.target.value });
-                }}
-                type="text"
-                className="form-control"
-                placeholder="First Name"
-                required
-              />
-            </div>
-            <div className="col-md-6 mb-3">
-              <label htmlFor="lastName">Last name</label>
-              <input
-                onChange={e => {
-                  setnewUser({ ...newUser, secondName: e.target.value });
-                }}
-                type="text"
-                className="form-control"
-                id="lastName"
-                placeholder="Last Name"
-                required
-              />
-            </div>
+          <TextInput half={true}  placeholder="First name" label="First name" optional={false} onChange={e =>{setnewUser({...newUser, firstName: e.target.value });}}  />
+          <TextInput half={true}  placeholder="Last name" label="Last name" optional={false} onChange={e =>{setnewUser({...newUser, secondName: e.target.value});}}  />
           </div>
 
           <div className="mb-3">
