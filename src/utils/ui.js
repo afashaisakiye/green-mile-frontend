@@ -26,14 +26,34 @@ export const addUserFeilds = {
     half: true,
     placeholder: "First Name",
     label: "First Name",
-    type: "text",
-    optional: false,
+    type: "text"
   },
   last_name: {
     half: true,
     placeholder: "Last Name",
     label: "Last Name",
-    type: "text",
-    optional: false,
+    type: "text"
   },
+  email:{
+    placeholder: "you@example.com",
+    label: "Email Address",
+    type: "email",
+  },
+phone:{
+    placeholder: "256 782 000 000",
+    label: "Phone Number",
+    type: "tel",
+  },
+company_name:{
+    placeholder: "Company.Inc",
+    label: "Company Name",
+    type: "text",
+    optional:true
+},
+company_domain:{
+    placeholder: "example.domain",
+    label: "Company Domain",
+    type: "link",
+    optional:true
+}
 };

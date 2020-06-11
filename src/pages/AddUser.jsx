@@ -32,17 +32,13 @@ const AddUser = () => {
             />
           </div>
           <Input
-            type="text"
-            placeholder="you@example.com"
-            label="Email"
+            {...addUserFeilds["email"]}
             onChange={(e) => {
               setnewUser({ ...newUser, email: e.target.value });
             }}
           />
           <Input
-            type="tel"
-            placeholder="256 782 000 000"
-            label="Phone Number"
+            {...addUserFeilds["phone"]}
             onChange={(e) => {
               setnewUser({ ...newUser, phone: e.target.value });
             }}
@@ -55,17 +51,13 @@ const AddUser = () => {
           {newUser.accountType == 3 && (
             <div className="suplier">
               <Input
-                placeholder="Company.Inc"
-                label="Comapny Name"
-                optional={true}
+                 {...addUserFeilds["company_name"]}
                 onChange={(e) => {
                   setnewUser({ ...newUser, companyName: e.target.value });
                 }}
               />
               <Input
-                placeholder="Comapny Domain"
-                label="Company domain"
-                optional={true}
+                 {...addUserFeilds["company_domain"]}
                 onChange={(e) => {
                   setnewUser({ ...newUser, companyDomain: e.target.value });
                 }}
