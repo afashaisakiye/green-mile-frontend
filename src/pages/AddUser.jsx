@@ -1,8 +1,9 @@
-import React, { useState, useContext, useHistory } from "react";
+import React, { useState, useContext} from "react";
 import { UsersContext } from "./../context/UsersContext";
 import RolesDropDown from "../components/RolesDropDown";
 import Input from "./../components/cores/Input";
 import { addUserFeilds } from "./../utils/ui";
+import { Button } from './../components/cores/Button';
 
 const AddUser = () => {
   const [newUser, setnewUser] = useState({});
@@ -12,36 +13,33 @@ const AddUser = () => {
     e.stopPropagation();
     AddUsers(newUser);
   };
-  
-  const onChangeHandler=(e)=>{
-    const name=e.target.name, value= e.target.value;
-    setnewUser({ ...newUser, [name]:value });
+  const makeInputProps=(fieldname)=>{
+      return {...addUserFeilds[fieldname],onChange:(e)=>{
+        const name=e.target.name, value= e.target.value;
+        setnewUser({ ...newUser, [name]:value });
+      }};
   }
+
   return (
     <div className="g-col no-sumary-card">
       <div className="user-form">
         <h2>Create User Account</h2>
         <form onSubmit={saveHandler}>
           <div className="row">
-            <Input {...addUserFeilds["first_name"]} onChange={onChangeHandler}  />
-            <Input {...addUserFeilds["last_name"]} onChange={onChangeHandler} />
+            <Input {...makeInputProps("first_name")}  />
+            <Input {...makeInputProps("last_name")} />
           </div>
-          <Input {...addUserFeilds["email"]} onChange={onChangeHandler} />
-          <Input {...addUserFeilds["phone"]} onChange={onChangeHandler}  />
+          <Input {...makeInputProps("email")} />
+          <Input {...makeInputProps("phone")} />
           <RolesDropDown setRole={(e) => { setnewUser({ ...newUser, accountType: e.target.value }); }} />
-          {newUser.accountType == 3 && (
-            <div className="suplier">
-              <Input {...addUserFeilds["company_name"]}  onChange={onChangeHandler} />
-              <Input {...addUserFeilds["company_domain"]} onChange={onChangeHandler} />
-            </div>
-          )}
-          <button className="btn btn-primary btn-lg btn-block" type="submit">
-            Submit User
-          </button>
+          {newUser.accountType == 3 && (<div className="suplier">
+              <Input {...makeInputProps("company_name")} />
+              <Input {...makeInputProps("company_domain")} />
+            </div>)}
+          <Button />
         </form>
       </div>
     </div>
   );
 };
-
 export default AddUser;
