@@ -23,38 +23,16 @@ const AddUser = () => {
         <h2>Create User Account</h2>
         <form onSubmit={saveHandler}>
           <div className="row">
-            <Input 
-            {...addUserFeilds["first_name"]}
-              onChange={onChangeHandler}
-            />
-            <Input
-              {...addUserFeilds["last_name"]}
-              onChange={onChangeHandler}
-            />
+            <Input {...addUserFeilds["first_name"]} onChange={onChangeHandler}  />
+            <Input {...addUserFeilds["last_name"]} onChange={onChangeHandler} />
           </div>
-          <Input
-            {...addUserFeilds["email"]}
-            onChange={onChangeHandler}
-          />
-          <Input
-            {...addUserFeilds["phone"]}
-            onChange={onChangeHandler}
-          />
-          <RolesDropDown
-            setRole={(e) => {
-              setnewUser({ ...newUser, accountType: e.target.value });
-            }}
-          />
+          <Input {...addUserFeilds["email"]} onChange={onChangeHandler} />
+          <Input {...addUserFeilds["phone"]} onChange={onChangeHandler}  />
+          <RolesDropDown setRole={(e) => { setnewUser({ ...newUser, accountType: e.target.value }); }} />
           {newUser.accountType == 3 && (
             <div className="suplier">
-              <Input
-                 {...addUserFeilds["company_name"]}
-                 onChange={onChangeHandler}
-              />
-              <Input
-                 {...addUserFeilds["company_domain"]}
-                 onChange={onChangeHandler}
-              />
+              <Input {...addUserFeilds["company_name"]}  onChange={onChangeHandler} />
+              <Input {...addUserFeilds["company_domain"]} onChange={onChangeHandler} />
             </div>
           )}
           <button className="btn btn-primary btn-lg btn-block" type="submit">
