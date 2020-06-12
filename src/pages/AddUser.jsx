@@ -12,6 +12,11 @@ const AddUser = () => {
     e.stopPropagation();
     AddUsers(newUser);
   };
+  
+  const onChangeHandler=(e)=>{
+    const name=e.target.name, value= e.target.value;
+    setnewUser({ ...newUser, [name]:value });
+  }
   return (
     <div className="g-col no-sumary-card">
       <div className="user-form">
@@ -20,28 +25,20 @@ const AddUser = () => {
           <div className="row">
             <Input 
             {...addUserFeilds["first_name"]}
-              onChange={(e) => {
-                setnewUser({ ...newUser, firstName: e.target.value });
-              }}
+              onChange={onChangeHandler}
             />
             <Input
               {...addUserFeilds["last_name"]}
-              onChange={(e) => {
-                setnewUser({ ...newUser, secondName: e.target.value });
-              }}
+              onChange={onChangeHandler}
             />
           </div>
           <Input
             {...addUserFeilds["email"]}
-            onChange={(e) => {
-              setnewUser({ ...newUser, email: e.target.value });
-            }}
+            onChange={onChangeHandler}
           />
           <Input
             {...addUserFeilds["phone"]}
-            onChange={(e) => {
-              setnewUser({ ...newUser, phone: e.target.value });
-            }}
+            onChange={onChangeHandler}
           />
           <RolesDropDown
             setRole={(e) => {
@@ -52,15 +49,11 @@ const AddUser = () => {
             <div className="suplier">
               <Input
                  {...addUserFeilds["company_name"]}
-                onChange={(e) => {
-                  setnewUser({ ...newUser, companyName: e.target.value });
-                }}
+                 onChange={onChangeHandler}
               />
               <Input
                  {...addUserFeilds["company_domain"]}
-                onChange={(e) => {
-                  setnewUser({ ...newUser, companyDomain: e.target.value });
-                }}
+                 onChange={onChangeHandler}
               />
             </div>
           )}
