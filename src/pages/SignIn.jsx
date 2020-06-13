@@ -1,43 +1,40 @@
 import React, {useState ,useContext, useHistory} from "react";
 import logo from './../../public/img/logo.png'
-import { signInUser} from './../utils/api';
 import { AuthContext } from './../context/AuthContext';
 import { Redirect } from 'react-router-dom';
+import { Loading } from "../components/cores/Loading";
+import { Button } from "../components/cores/Button";
 
-export default function SignIn(props) { 
-  const [signing_in ,set_signing_in_state]=useState(false);
-  const [signed_in ,set_signed_in_state]=useState(false);
-  const [error ,set_error_state]=useState(false);
-  const {setAuth} =useContext(AuthContext);
-  const [next_page,set_next_page]=useState(false)
+export default function SignIn(props) {
+  const [states,setStates]=useState({
+    signing_in:false,
+    signed_in:false,
+    error:false,
+    page_after_sign_in:'/'
+  })
+  const { signin } =useContext(AuthContext);
   const  submit= async(e)=>{
     e.preventDefault();
-    set_signing_in_state(true);
-    set_error_state(false);
-    const x=await signInUser(e.target['username'].value,e.target['password'].value)
-    if(!x){
-      set_error_state(true);
-      set_signing_in_state(false);
+    setStates({...states,signing_in:true,error:false})
+    const x=await signin(e.target['username'].value,e.target['password'].value)
+    if(x!==true){
+      setStates({...states,signing_in:false,error:x.error_msg})
       return;
     }
-    setAuth(x);
     const { location } = props;
     const { state } = location;
     if (state && state.from) {
-      set_next_page(state.from.pathname)
-    }else {
-      set_next_page('/');
+      setStates({...states,page_after_sign_in:state.from.pathname})
     }
-    set_signed_in_state(true)
+    setStates({...states,signed_in:true})
   }
 
-
+  const {signing_in ,error,signed_in,page_after_sign_in}=states;
   if(signed_in){
     return(
-      <Redirect to={next_page}/>
+      <Redirect to={page_after_sign_in}/>
     )
   }
-
   return (
     <div className="sign-in-container">
       <div className="right">
@@ -50,16 +47,10 @@ export default function SignIn(props) {
         <form onSubmit={submit} >
           <input  type="email" placeholder="Enter Email" name="username" required />
           <input name="password" type="password" placeholder="Enter Password" required />
-          {error &&( <div className="error"><p>Wrong username or password</p></div> )}
-          {!signing_in &&(<button type="submit">signin</button>)}
+          {error &&( <div className="error"><p>{error}</p></div> )}
+          {!signing_in && <Button name="sign in" />}
+          {signing_in && <Loading />}
         </form>
-        {signing_in && (
-        <div className="signing-in">
-          <span><i className="fas fa-spinner fa-spin"></i></span>
-          <span>PLEASE WAIT</span>
-        </div>
-        )}
-        
       </div>
     </div>
   );
