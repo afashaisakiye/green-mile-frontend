@@ -19,6 +19,9 @@ const packageReducer=(state,action)=>{
             break;
         case 'ADD_MANY':
             return [...state,...action.packages]
+        case "SET":
+              return [...action.packages];
+              break;
         default:
             break;
     }
@@ -45,7 +48,7 @@ const PackagesContextProvider=(props)=>{
             set_pacake_status(x)
             getPackages(authed).then((x)=>{
                 packageDispatch({
-                    type:"ADD_MANY",
+                    type:"SET",
                     packages:x
                 })
             })
@@ -53,7 +56,7 @@ const PackagesContextProvider=(props)=>{
         getPackagesTypes().then((x)=>{
             set_packages_types(x)
         })
-    },[])
+    },[authed])
 
     return (<PackagesContext.Provider 
     value={{
