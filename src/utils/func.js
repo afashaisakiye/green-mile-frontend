@@ -7,3 +7,13 @@ export const RemoveTrailing = pathname => {
     }
     return pathname;
   };
+
+  export const getLocalStorage=(key)=>{
+    return JSON.parse(localStorage.getItem(key))?JSON.parse(window.localStorage.getItem(key)):false;
+  }
+
+  export const setLocalStorage=(key,value)=>{
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  }
+
