@@ -1,22 +1,9 @@
 import React, { createContext, useState ,useContext,useEffect } from "react";
-import { useLocation } from "react-router";
 import { AuthContext } from "./AuthContext";
 import {menu_items as all_menu_items} from "./../utils/ui";
 export const UIContext = createContext();
 
-const RemoveTrailing = pathname => {
-  if (pathname != "/") {
-    const regex = /\/+\s*$/g;
-    if (regex.exec(pathname) !== null) {
-      return pathname.replace(regex, "");
-    }
-  }
-  return pathname;
-};
-
 function UIContextProvider(props) {
-  const location = useLocation();
-  const [pathname, setPathName] = useState(RemoveTrailing(location.pathname));
   const [menu_items,set_menu_items] =useState([]);
   const { account_type_info } = useContext(AuthContext);
 
@@ -28,9 +15,7 @@ function UIContextProvider(props) {
     }
   }, [account_type_info])
     return (
-      <UIContext.Provider
-        value={{pathname, setPathName , sidemenu:{ active:pathname,menu_items} }}
-      >
+      <UIContext.Provider value={{sidemenu:{menu_items} }} >
         {props.children}
       </UIContext.Provider>
     );

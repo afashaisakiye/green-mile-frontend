@@ -1,9 +1,7 @@
 import React from "react";
 
-export const Button = () => {
+export const Button = ({name}) => {
   return (
-    <button className="btn btn-primary btn-lg btn-block" type="submit">
-      Submit User
-    </button>
+    <button className="submit" type="submit">{name}</button>
   );
 };
