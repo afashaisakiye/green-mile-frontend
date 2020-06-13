@@ -36,7 +36,7 @@ const AddUser = () => {
               <Input {...makeInputProps("company_name")} />
               <Input {...makeInputProps("company_domain")} />
             </div>)}
-          <Button />
+          <Button name="Add User" />
         </form>
       </div>
     </div>
