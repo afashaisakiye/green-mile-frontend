@@ -3,16 +3,6 @@ import { AuthContext } from "./AuthContext";
 import {menu_items as all_menu_items} from "./../utils/ui";
 export const UIContext = createContext();
 
-const RemoveTrailing = pathname => {
-  if (pathname != "/") {
-    const regex = /\/+\s*$/g;
-    if (regex.exec(pathname) !== null) {
-      return pathname.replace(regex, "");
-    }
-  }
-  return pathname;
-};
-
 function UIContextProvider(props) {
   const [menu_items,set_menu_items] =useState([]);
   const { account_type_info } = useContext(AuthContext);
