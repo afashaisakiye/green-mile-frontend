@@ -6,13 +6,20 @@ import { Loading } from "../components/cores/Loading";
 import { Button } from "../components/cores/Button";
 
 export default function SignIn(props) {
+  const { location } = props;
+  const { state } = location; 
+  let page_after_sign_in="/";
+  if (state && state.from) {
+    page_after_sign_in =state.from.pathname;
+  }
   const [states,setStates]=useState({
     signing_in:false,
     signed_in:false,
     error:false,
-    page_after_sign_in:'/'
+    page_after_sign_in
   })
   const { signin } =useContext(AuthContext);
+ 
   const  submit= async(e)=>{
     e.preventDefault();
     setStates({...states,signing_in:true,error:false})
@@ -21,15 +28,10 @@ export default function SignIn(props) {
       setStates({...states,signing_in:false,error:x.error_msg})
       return;
     }
-    const { location } = props;
-    const { state } = location;
-    if (state && state.from) {
-      setStates({...states,page_after_sign_in:state.from.pathname})
-    }
     setStates({...states,signed_in:true})
   }
 
-  const {signing_in ,error,signed_in,page_after_sign_in}=states;
+  const {signing_in ,error,signed_in}=states;
   if(signed_in){
     return(
       <Redirect to={page_after_sign_in}/>
@@ -38,9 +40,7 @@ export default function SignIn(props) {
   return (
     <div className="sign-in-container">
       <div className="right">
-        <div>
           <h1 className="quote">Welcome to Green Mile Platform, Let's Deliver the packages</h1>
-        </div>
       </div>
       <div className="sign-in">
         <img className="img" src={logo} alt="avatar" />
