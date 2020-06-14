@@ -1,6 +1,8 @@
 .cache/
 coverage/
-dist/
+dist/*
+!dist/.htaccess
+!dist/netlify.toml
 node_modules/
 src/fonts/
 *.log
