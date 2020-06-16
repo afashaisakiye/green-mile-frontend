@@ -1,5 +1,5 @@
 import React, {useContext } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 
 import {AuthContext}  from "./../context/AuthContext";
