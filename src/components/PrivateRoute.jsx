@@ -2,16 +2,9 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = ({ test,redirect_to, component: Component, children, ...rest }) => {
-  if(children && !Component){
-    return (
-      <Route {...rest} render={ props => ( test? children: <Redirect to={{ pathname:redirect_to, state: { from: props.location } }} />) } />
-    )
-  }
+  const component=(children && !Component)?children:<Component {...rest} />
   return (
-    <Route
-      {...rest}
-      render={ props => ( test? <Component {...props} />: <Redirect to={{ pathname: redirect_to, state: { from: props.location } }} />) }
-    />
+      <Route {...rest} render={ props => ( test? component: <Redirect to={{ pathname: redirect_to, state: { from: props.location } }} />) }/>
   )
 };
 
