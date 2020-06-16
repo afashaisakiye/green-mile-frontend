@@ -29,9 +29,7 @@ const { sidemenu}=useContext(UIContext);
         <Switch>
           <PrivateRoute exact path="/sign-in" test={!authed} redirect_to={'/'} component={SignIn}/>
           <PrivateRoute exact path="/" component={Index} test={authed} redirect_to={'/sign-in'} />
-          <PrivateRoute exact path="/packages" test={authed} redirect_to={'/sign-in'}  >
-            <PackagesPage/>
-          </PrivateRoute>
+          <PrivateRoute exact path="/packages"  component={PackagesPage} test={authed} redirect_to={'/sign-in'} />
           <PrivateRoute exact path="/users" component={UsersPage} test={(authed)} redirect_to={'/sign-in'} />
           <PrivateRoute exact path="/users/add" component={AddUser} test={authed} redirect_to={'/sign-in'} />
           <PrivateRoute exact path="/user/:id" component={userPage} test={authed} redirect_to={'/sign-in'} />

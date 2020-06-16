@@ -20,8 +20,8 @@ const packageReducer=(state,action)=>{
         case 'ADD_MANY':
             return [...state,...action.packages]
         case "SET":
-              return [...action.packages];
-              break;
+            return [...action.packages];
+            break;
         default:
             break;
     }
@@ -40,6 +40,20 @@ const PackagesContextProvider=(props)=>{
             type:"REPLACE",
             updated_package:new_package
         });
+    }
+
+    const next_package_status_maker=(accumulator, currentValue) => [...accumulator,{
+        "id":currentValue,
+        "name":package_status.filter(
+            (package_state) => package_state.id == currentValue
+          )[0].display_name
+    }];
+
+    const getNextStatuses=(current_status_id)=>{
+        const nextStatuses = package_status.filter(
+          (package_state) => package_state.id == current_status_id
+        )[0].next_statuses;
+        return nextStatuses.reduce(next_package_status_maker,[]);
     }
 
 
@@ -64,7 +78,8 @@ const PackagesContextProvider=(props)=>{
         packages,
         package_status,
         package_type,
-        updatePackageStatus
+        updatePackageStatus,
+        getNextStatuses
     }}>
         {props.children}
         </PackagesContext.Provider>

@@ -3,8 +3,8 @@ import List from './../components/List';
 import PackageCard from './../components/PackageCard';
 
 import { PackagesContext } from './../context/PackagesContext';
-export default function PackagesPage() {
-    const { package_status , packages, updatePackageStatus } =useContext(PackagesContext);
+const PackagesPage=()=>{
+    const { package_status , packages, updatePackageStatus, getNextStatuses } =useContext(PackagesContext);
     
     const startDragCard=(e)=>{
         e.dataTransfer.setData("package", e.target.id);
@@ -29,7 +29,9 @@ export default function PackagesPage() {
                         return <PackageCard 
                             onDragStart={startDragCard} 
                             key={_package.id}  
-                            _package={_package} 
+                            _package={_package}
+                            options={getNextStatuses(_package.status)}
+                            updatePackageStatus={(e)=>updatePackageStatus(_package.id,e.target.value)}
                         />
                     })}
                     </List>;
@@ -38,3 +40,5 @@ export default function PackagesPage() {
         </div>
     )
 }
+
+export default PackagesPage;
