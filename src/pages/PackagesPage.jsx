@@ -3,9 +3,12 @@ import List from './../components/List';
 import PackageCard from './../components/PackageCard';
 
 import { PackagesContext } from './../context/PackagesContext';
+import { AuthContext } from './../context/AuthContext';
+import AddPackageButton from '../components/AddPackageButton';
+
 const PackagesPage=()=>{
     const { package_status , packages, updatePackageStatus, getNextStatuses } =useContext(PackagesContext);
-    
+    const { account_type_info } =useContext(AuthContext);
     const startDragCard=(e)=>{
         e.dataTransfer.setData("package", e.target.id);
     }
@@ -34,6 +37,9 @@ const PackagesPage=()=>{
                             updatePackageStatus={(e)=>updatePackageStatus(_package.id,e.target.value)}
                         />
                     })}
+
+                    {(list.id==2 && account_type_info.id==3)&&(<AddPackageButton />)
+                    }
                     </List>;
                 }) }
             </div>
