@@ -1,0 +1,10 @@
+.add-package{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.479);
+    width: 100%;
+    >.modal{
+        display: block;
+    }
+}
