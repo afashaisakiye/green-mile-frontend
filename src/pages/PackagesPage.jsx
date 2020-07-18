@@ -1,14 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext ,useState } from 'react'
 import List from './../components/List';
 import PackageCard from './../components/PackageCard';
 
 import { PackagesContext } from './../context/PackagesContext';
 import { AuthContext } from './../context/AuthContext';
 import AddPackageButton from '../components/AddPackageButton';
+import AddPackageModel from '../components/AddPackageModel/';
 
 const PackagesPage=()=>{
     const { package_status , packages, updatePackageStatus, getNextStatuses } =useContext(PackagesContext);
     const { account_type_info } =useContext(AuthContext);
+    const [addPakageModel, setaddPakageModel] = useState(false)
     const startDragCard=(e)=>{
         e.dataTransfer.setData("package", e.target.id);
     }
@@ -18,7 +20,9 @@ const PackagesPage=()=>{
         const package_id = e.dataTransfer.getData("package");
         updatePackageStatus(package_id,list_id);
     }
+   
     return (
+        <>
         <div className="g-col no-sumary-card" >
             <div className="board">
                 { package_status.map((list)=>{
@@ -38,12 +42,15 @@ const PackagesPage=()=>{
                         />
                     })}
 
-                    {(list.id==2 && account_type_info.id==3)&&(<AddPackageButton />)
+                    {(list.id==2 && account_type_info.id==3)&&(<AddPackageButton onClick={()=>setaddPakageModel(true)} />)
                     }
                     </List>;
-                }) }
+                })
+                }
             </div>
         </div>
+       {(account_type_info.id==3 && addPakageModel)&&(<AddPackageModel closeAction={()=>setaddPakageModel(false)} />)}
+        </>
     )
 }
 
