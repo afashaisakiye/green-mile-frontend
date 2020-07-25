@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const AddPackageModel = ({closeAction}) => {
+const AddPackageModel = ({ closeAction }) => {
+    const [state, setstate] = useState({})
     return (
         <div className="add-package">
             <div >
