@@ -1,5 +1,5 @@
 import React, { createContext, useState, useReducer,useEffect, useContext } from "react";
-import { getListsForUser ,getPackagesTypes,getPackages} from './../utils/api' 
+import { getListsForUser, addNewPackage ,getPackagesTypes,getPackages} from './../utils/api' 
 import {AuthContext}  from "./AuthContext";
 
 
@@ -28,7 +28,7 @@ const packageReducer=(state,action)=>{
 }
 
 const PackagesContextProvider=(props)=>{
-    const [package_status,set_pacake_status]=useState([]) 
+    const [package_status,set_package_statuses]=useState([]) 
     const [packages, packageDispatch] = useReducer(packageReducer,[]);
     const [package_type, set_packages_types] =useState([])
     const { authed} = useContext(AuthContext);
@@ -56,10 +56,14 @@ const PackagesContextProvider=(props)=>{
         return nextStatuses.reduce(next_package_status_maker,[]);
     }
 
+     const register_package=async (data)=>{
+        let x =await addNewPackage(data)
+        packageDispatch({type:"ADD",package:x})
+    }
 
     useEffect(() => {
         getListsForUser(authed.account_type).then((x)=>{
-            set_pacake_status(x)
+            set_package_statuses(x)
             getPackages(authed).then((x)=>{
                 packageDispatch({
                     type:"SET",
@@ -79,7 +83,8 @@ const PackagesContextProvider=(props)=>{
         package_status,
         package_type,
         updatePackageStatus,
-        getNextStatuses
+        getNextStatuses,
+        register_package
     }}>
         {props.children}
         </PackagesContext.Provider>

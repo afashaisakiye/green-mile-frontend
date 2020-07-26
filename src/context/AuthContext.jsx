@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 function AuthContextProvider(props) {
   const [authed, setAuth] = useState(getLocalStorage('auth'));
   const [account_type_info, setAccountTypeInfo] = useState(false);
+
   const signin = async (email, password) => {
     const loggin=await signInUser(email,password)
     if(loggin.error_msg){
@@ -16,10 +17,13 @@ function AuthContextProvider(props) {
     //do all the preparation here
     return true;
   };
+
   const logout=()=>{
     setLocalStorage('auth',null);
     setAuth(false);
   }
+
+
   useEffect(() => {
     if (authed) {
       (async () => {
