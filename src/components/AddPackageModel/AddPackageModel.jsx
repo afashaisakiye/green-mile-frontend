@@ -4,9 +4,9 @@ import { PackagesContext } from './../../context/PackagesContext';
 
 
 const AddPackageModel = ({ closeAction }) => {
-    const { addNewPackage } = useContext(PackagesContext)
+    const { register_package } = useContext(PackagesContext)
     const [state, setstate] = useState({
-        "state":3
+        "status":2
     })
 
     const updateState=(e)=>{
@@ -14,7 +14,7 @@ const AddPackageModel = ({ closeAction }) => {
     }
 
     const savePackage=()=>{
-        addNewPackage(state);
+        register_package(state);
         closeAction()
     }
 
@@ -40,10 +40,10 @@ const AddPackageModel = ({ closeAction }) => {
                                         <label htmlFor="inputEmail4">Type</label>
                                         <select onChange={updateState} name="type"  className="form-control">
                                             <option defaultValue>Envelope</option>
-                                            <option value="1" >Freezed</option>
-                                            <option value="2" >Pacel</option>
-                                            <option value="3" >Soft Package</option>
-                                            <option value="4" >Air</option>
+                                            <option value={1} >Freezed</option>
+                                            <option value={2} >Pacel</option>
+                                            <option value={3} >Soft Package</option>
+                                            <option value={4} >Air</option>
                                         </select>
                                     </div>
                                     <div className="form-group col-md-6">
