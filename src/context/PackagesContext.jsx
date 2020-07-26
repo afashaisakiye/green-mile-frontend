@@ -56,6 +56,9 @@ const PackagesContextProvider=(props)=>{
         return nextStatuses.reduce(next_package_status_maker,[]);
     }
 
+    const addNewPackage=(data)=>{
+        packageDispatch({type:"ADD",package:data})
+    }
 
     useEffect(() => {
         getListsForUser(authed.account_type).then((x)=>{
@@ -79,7 +82,8 @@ const PackagesContextProvider=(props)=>{
         package_status,
         package_type,
         updatePackageStatus,
-        getNextStatuses
+        getNextStatuses,
+        addNewPackage
     }}>
         {props.children}
         </PackagesContext.Provider>
