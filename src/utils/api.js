@@ -70,4 +70,15 @@ export const getPackages=async(user_auth_token)=>{
     
 }
 
+export const addNewPackage = async(_package,auth_token)=>{
+    const response = await fetch(`https://my-json-server.typicode.com/afashaisakiye/gmd_package_api/packages`,{
+        method: 'POST',
+        body: JSON.stringify(_package),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      } );
+  
+  return  (await response.json());
+}
 
