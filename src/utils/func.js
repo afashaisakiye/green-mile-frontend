@@ -17,3 +17,11 @@ export const RemoveTrailing = pathname => {
     return true;
   }
 
+  export const stringToInputObject=(name,value)=>{
+    const reducer = (accumulator, currentValue) =>{
+        return {[accumulator]:{[currentValue]:value}};
+      };
+      let names=name.split(".");
+      let x=names.reduce(reducer);
+      return x;
+    }
