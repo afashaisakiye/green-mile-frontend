@@ -1,3 +1,4 @@
+import  _ from 'lodash';
 export const RemoveTrailing = pathname => {
     if (pathname != "/") {
       const regex = /\/+\s*$/g;
@@ -25,3 +26,15 @@ export const RemoveTrailing = pathname => {
       let x=names.reduce(reducer);
       return x;
     }
+
+  export const formInputToObject=(name,value,previousObject={})=>{
+    let newOject;
+    if(name.includes('.')){
+      newOject= stringToInputObject(name,value);
+    }else{
+      newOject={
+        [name]:value
+      }
+    }
+    return _.merge(previousObject, newOject);
+  }
