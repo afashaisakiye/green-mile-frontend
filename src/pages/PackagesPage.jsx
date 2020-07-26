@@ -11,11 +11,11 @@ const PackagesPage=()=>{
     const { package_status , packages, updatePackageStatus, getNextStatuses } =useContext(PackagesContext);
     const { account_type_info } =useContext(AuthContext);
     const [addPakageModel, setaddPakageModel] = useState(false)
-    const startDragCard=(e)=>{
+    const startDragCard=(e) => {
         e.dataTransfer.setData("package", e.target.id);
     }
 
-    const dropCardInList=(e,list_id)=>{
+    const dropCardInList=(e,list_id) => {
         e.preventDefault();
         const package_id = e.dataTransfer.getData("package");
         updatePackageStatus(package_id,list_id);
@@ -25,7 +25,7 @@ const PackagesPage=()=>{
         <>
         <div className="g-col no-sumary-card" >
             <div className="board">
-                { package_status.map((list)=>{
+                {package_status.map((list) => {
                     return <List
                         id={list.id}
                         onDragOver={(e)=>{e.preventDefault();}} 
