@@ -1,6 +1,6 @@
 import React,{ useContext}  from 'react'
 import { useParams } from 'react-router'
-import { UsersContext } from './../context/UsersContext';
+import { UsersContext } from './../../context/UsersContext';
 function userPage() {
     let { id } = useParams();
     const {getUser} = useContext(UsersContext);

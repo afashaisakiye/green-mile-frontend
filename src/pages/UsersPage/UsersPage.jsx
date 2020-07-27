@@ -1,6 +1,6 @@
 import React from 'react';
-import Pagination from './../components/Pagination';
-import UsersList from './../components/UsersList';
+import Pagination from './../../components/Pagination';
+import UsersList from './../../components/UsersList';
 import {Link } from 'react-router-dom'
 
 function UsersPage() {
