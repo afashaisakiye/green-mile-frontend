@@ -1,3 +1,3 @@
-import UserList from "./UsersList";
+import UsersList from "./UsersList";
 
-export default UserList
+export default UsersList
