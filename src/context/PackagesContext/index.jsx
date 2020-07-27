@@ -1,6 +1,6 @@
 import React, { createContext, useState, useReducer,useEffect, useContext } from "react";
-import { getListsForUser, addNewPackage ,getPackagesTypes,getPackages} from './../utils/api' 
-import {AuthContext}  from "./AuthContext";
+import { getListsForUser, addNewPackage ,getPackagesTypes,getPackages} from './../../utils/api' 
+import {AuthContext}  from "./../AuthContext";
 
 
 export const PackagesContext = createContext();

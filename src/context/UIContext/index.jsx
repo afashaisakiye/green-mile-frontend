@@ -1,6 +1,6 @@
 import React, { createContext, useState ,useContext,useEffect } from "react";
-import { AuthContext } from "./AuthContext";
-import {menu_items as all_menu_items} from "./../utils/ui";
+import { AuthContext } from "./../AuthContext";
+import {menu_items as all_menu_items} from "./../../utils/ui";
 export const UIContext = createContext();
 
 function UIContextProvider(props) {
