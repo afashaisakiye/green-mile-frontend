@@ -1,5 +1,5 @@
 import React from "react";
-import SelectPackageStatus from "./SelectPackageStatus";
+import SelectPackageStatus from "./../SelectPackageStatus";
 
 export default function PackageCard({_package,onDragStart,updatePackageStatus,options}) {
   return (

@@ -14,9 +14,6 @@ body {
     position: relative;
 }
 
-.flex-box {
-    display: $flex-box;
-    position: relative;
     .g-col {
         display: flex;
         flex-direction: column;
@@ -86,7 +83,7 @@ body {
             max-width: 70%;
         }
     }
-}
+
 
 //Package List
 .package-list{
