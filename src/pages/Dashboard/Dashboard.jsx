@@ -1,6 +1,6 @@
 import React from 'react'
 import SideMenu from './../../components/SideMenu';
-import PackagesSummary from './../components/PackagesSummary';
+import PackagesSummary from './../../components/PackagesSummary';
 import Logout from './../components/Logout';
 
 export default function Dashboard() {
