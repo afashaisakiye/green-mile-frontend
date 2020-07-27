@@ -1,6 +1,6 @@
 import React ,{ useContext } from 'react'
-import { UsersContext } from './../context/UsersContext';
-import UserListItem from './UserListItem';
+import { UsersContext } from './../../context/UsersContext';
+import UserListItem from './../UserListItem';
 
 export default function UsersList() {
     const { users } =useContext( UsersContext )

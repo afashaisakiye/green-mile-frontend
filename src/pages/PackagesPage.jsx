@@ -4,8 +4,8 @@ import PackageCard from './../components/PackageCard';
 
 import { PackagesContext } from './../context/PackagesContext';
 import { AuthContext } from './../context/AuthContext';
-import AddPackageButton from '../components/AddPackageButton';
-import AddPackageModel from '../components/AddPackageModel/';
+import AddPackageButton from './../components/AddPackageButton';
+import AddPackageModel from '../components/AddPackageModel';
 
 const PackagesPage=()=>{
     const { package_status , packages, updatePackageStatus, getNextStatuses } =useContext(PackagesContext);

@@ -1,5 +1,5 @@
 import React, { useContext} from 'react'
-import { UsersContext } from './../context/UsersContext';
+import { UsersContext } from './../../context/UsersContext';
 import {Link } from 'react-router-dom'
 
 function UserListItem({user}) {
