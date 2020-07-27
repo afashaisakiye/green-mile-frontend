@@ -23,7 +23,7 @@ const PackagesPage=()=>{
    
     return (
         <>
-        <div className="g-col no-sumary-card" >
+
             <div className="board">
                 {package_status.map((list) => {
                     return <List
@@ -48,7 +48,6 @@ const PackagesPage=()=>{
                 })
                 }
             </div>
-        </div>
        {(account_type_info.id==3 && addPakageModel)&&(<AddPackageModel closeAction={()=>setaddPakageModel(false)} />)}
         </>
     )
