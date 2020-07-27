@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
-import { accountTypeInfo, signInUser } from "./../utils/api";
-import { getLocalStorage,setLocalStorage} from "./../utils/func"
+import { accountTypeInfo, signInUser } from "./../../utils/api";
+import { getLocalStorage,setLocalStorage} from "./../../utils/func"
 export const AuthContext = createContext();
 
 function AuthContextProvider(props) {
