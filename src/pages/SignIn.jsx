@@ -2,8 +2,8 @@ import React, {useState ,useContext, useHistory} from "react";
 import logo from './../../public/img/logo.png'
 import { AuthContext } from './../context/AuthContext';
 import { Redirect } from 'react-router-dom';
-import { Loading } from "../components/cores/Loading";
-import { Button } from "../components/cores/Button";
+import Loading  from "../components/cores/Loading";
+import Button from "../components/cores/Button";
 
 export default function SignIn(props) {
   const { location } = props;
