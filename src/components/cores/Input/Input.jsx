@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Input({onChange, label, placeholder, optional, half, type ,name}) {
+const Input=({onChange, label, placeholder, optional, half, type ,name}) => {
     return (
         <div className={ half?"col-md-6 ":""+"mb-3"}>
         <label htmlFor="email">

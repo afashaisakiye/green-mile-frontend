@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Loading = () => {
+const Loading = () => {
     return (
         <div className="signing-in">
             <span><i className="fas fa-spinner fa-spin"></i></span>
@@ -8,3 +8,5 @@ export const Loading = () => {
         </div>
     )
 }
+
+export default Loading;
