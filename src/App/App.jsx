@@ -16,7 +16,7 @@ const { sidemenu}=useContext(UIContext);
           <SideMenu menu={sidemenu} />
           </div>
         )}
-          <Routes />
+        <div className="page"> <Routes /></div>
       </>
     );
 }

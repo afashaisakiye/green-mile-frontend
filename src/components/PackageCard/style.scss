@@ -1,0 +1,40 @@
+.package-card{
+    background:white;
+    padding: 0.1em;
+    border-radius: 2px;
+    margin:5px 2px;
+    .package-wrapper{
+        h5{
+            text-transform: uppercase;
+            margin-bottom: unset;
+            padding:12px 5px;
+            color: #607D8B;
+            font-size: 1.04em;
+            line-height: 1em;
+            .id{
+                color: #FF9800;
+            }
+        }
+    }
+    .package-btns{
+        display: flex;
+        justify-content: flex-end;
+        padding: 2px;
+        .move-card{
+            background: lightgrey;
+            border: unset;
+            padding: 3px 7px;
+            width: 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #607D8B;
+            border-radius: 2px;
+            i{
+                font-size: 0.8em;
+                display: block;
+                color: #607d8ba6;
+            }
+        }
+    }
+}

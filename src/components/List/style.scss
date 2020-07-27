@@ -1,0 +1,17 @@
+.package-list{
+    background: lightgrey;
+    margin: 0px 0.2em;
+    min-width: 280px;
+    border-radius: 5px;
+    overflow: hidden;
+    height: fit-content;
+    >h2{
+        font-size: 17px;
+        padding: 0.9em 0.7em;
+        background: rgb(202, 202, 202);
+        margin: unset;
+    }
+    .list-wrapper{
+        padding:5px ;
+    }
+}

@@ -14,7 +14,7 @@ const AddUser = () => {
     AddUsers(newUser);
   };
   const makeInputProps=(fieldname)=>{
-      return {...addUserFeilds[fieldname],onChange:(e)=>{
+      return {...addUserFeilds.fieldname,onChange:(e)=>{
         const name=e.target.name, value= e.target.value;
         setnewUser({ ...newUser, [name]:value });
       }};
