@@ -1,13 +1,13 @@
 import React from 'react'
+import Select from 'react-select'
 
 const SelectPackageStatus = ({options, onSelect}) => {
+    const newoptions=options.map((data)=>{
+        return {value:data.id,label:data.name}
+    })
+
     return (
-        <select onChange={(e)=>onSelect(e)} defaultValue="1" name="" id="">
-            <option value="1" style={{display:"none"}}  disabled>Move to</option>
-            {options.map(({id,name})=>{
-                return <option key={id} value={id}>{name}</option>
-            })}
-        </select>
+        <Select className="form-control select" placeholder="Move Package" onChange={(e)=>onSelect(e)} options={newoptions} />
     )
 }
 

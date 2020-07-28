@@ -38,7 +38,7 @@ const PackagesPage=()=>{
                             key={_package.id}  
                             _package={_package}
                             options={getNextStatuses(_package.status)}
-                            updatePackageStatus={(e)=>updatePackageStatus(_package.id,e.target.value)}
+                            updatePackageStatus={(e)=>updatePackageStatus(_package.id,e.value)}
                         />
                     })}
 

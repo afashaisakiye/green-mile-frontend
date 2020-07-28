@@ -8,7 +8,7 @@ import SideMenu from "./../components/SideMenu";
 
 const App=(props)=>{
 const { authed } = useContext(AuthContext);
-const { sidemenu}=useContext(UIContext);
+const { sidemenu }=useContext(UIContext);
     return (
       <>
         {authed && (
