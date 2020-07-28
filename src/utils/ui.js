@@ -19,6 +19,10 @@ export const menu_items = [
     icon_class_name: "fas fa-credit-card",
     link_to: "/payment",
   },
+  {
+    icon_class_name: "fas fa-power-off",
+    link_to: "/logout",
+  },
 ];
 
 export const addUserFeilds = {
