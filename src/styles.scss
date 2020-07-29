@@ -9,6 +9,7 @@ body {
     background: $other-color;
     >#app{
         display: flex;
+        position: relative;
     >.menu {
             height: 100vh;
             background: white;
@@ -16,7 +17,8 @@ body {
     >.page{
         height: 100vh;
         flex-grow: 1;
-        overflow: scroll;
+        position: relative;
+        overflow: hidden;
     }
     }
 
@@ -31,6 +33,9 @@ body {
         >.page{
             height:90vh;
             flex-grow: 1;
+            &.not-logedin{
+                height: unset;
+            }
         }
         }
     }

@@ -16,7 +16,7 @@ const { sidemenu }=useContext(UIContext);
           <SideMenu menu={sidemenu} />
           </div>
         )}
-        <div className="page"> <Routes /></div>
+        <div className={((authed)?"authed ":"not-logedin ")+"page"}> <Routes /></div>
       </>
     );
 }

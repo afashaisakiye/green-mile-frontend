@@ -18,7 +18,7 @@ export default function SignIn(props) {
     error:false,
     page_after_sign_in
   })
-  const { signin } =useContext(AuthContext);
+  const { signin, authed } =useContext(AuthContext);
  
   const  submit= async(e)=>{
     e.preventDefault();
@@ -35,6 +35,12 @@ export default function SignIn(props) {
   if(signed_in){
     return(
       <Redirect to={page_after_sign_in}/>
+    )
+  }
+
+  if(authed){
+    return(
+      <Redirect to={'/'}/>
     )
   }
   return (
