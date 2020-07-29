@@ -29,7 +29,7 @@ const routes = [
   {
     path: "/sign-in",
     component: SignIn,
-    tests: [{ test: (!authed),redirect: "/"}]
+    //tests: [{ test: (!authed),redirect: "/"}]
   },
   {
     path: "/logout",
