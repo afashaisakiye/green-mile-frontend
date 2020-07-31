@@ -5,19 +5,19 @@ import AuthContextProvider from './../AuthContext';
 import PackagesContextProvider from './../PackagesContext';
 
 function GeneralContexts(props) {
-    return (
-      <>
-        <AuthContextProvider>
+  return (
+    <>
+      <AuthContextProvider>
+        <UIContextProvider>
           <UsersContextProvider>
-            <UIContextProvider>
-              <PackagesContextProvider>
-            {props.children}
+            <PackagesContextProvider>
+              {props.children}
             </PackagesContextProvider>
-            </UIContextProvider>
           </UsersContextProvider>
-        </AuthContextProvider>
-      </>
-    );
+        </UIContextProvider>
+      </AuthContextProvider>
+    </>
+  );
 }
 
 export default GeneralContexts

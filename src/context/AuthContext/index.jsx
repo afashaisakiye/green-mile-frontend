@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { accountTypeInfo, signInUser } from "./../../utils/api";
-import { getLocalStorage,setLocalStorage} from "./../../utils/func"
+import { getLocalStorage, setLocalStorage } from "./../../utils/func"
 export const AuthContext = createContext();
 
 function AuthContextProvider(props) {
@@ -8,18 +8,18 @@ function AuthContextProvider(props) {
   const [account_type_info, setAccountTypeInfo] = useState(false);
 
   const signin = async (email, password) => {
-    const loggin=await signInUser(email,password)
-    if(loggin.error_msg){
+    const loggin = await signInUser(email, password)
+    if (loggin.error_msg) {
       return loggin;
     }
-    setLocalStorage('auth',loggin)
+    setLocalStorage('auth', loggin)
     setAuth(loggin);
     //do all the preparation here
     return true;
   };
 
-  const logout=()=>{
-    setLocalStorage('auth',null);
+  const logout = () => {
+    setLocalStorage('auth', null);
     setAuth(false);
   }
 
@@ -32,7 +32,7 @@ function AuthContextProvider(props) {
     }
   }, [authed]);
   return (
-    <AuthContext.Provider value={{logout, account_type_info, authed, signin }}>
+    <AuthContext.Provider value={{ logout, account_type_info, authed, signin }}>
       {props.children}
     </AuthContext.Provider>
   );
