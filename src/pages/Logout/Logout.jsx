@@ -4,7 +4,6 @@ import { AuthContext } from './../../context/AuthContext'
 
 const Logout = (props) => {
    const { logout} = useContext(AuthContext)
-   console.log(logout)
     return (
         <div>
             <p>Are you sure you want to logout ?</p>
