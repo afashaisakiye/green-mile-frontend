@@ -34,9 +34,7 @@ export default function SignIn(props) {
   }
   return (
     <div className="sign-in-container">
-      <div className="right">
-          <h1 className="quote">Welcome to Green Mile Platform, Let's Deliver the packages</h1>
-      </div>
+     
       <div className="sign-in">
         <img className="img" src={logo} alt="avatar" />
         <form onSubmit={submit} >
