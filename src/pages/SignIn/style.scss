@@ -1,0 +1,55 @@
+.sign-in-container {
+    display: flex;
+    justify-content: flex-end;
+    background:white;
+  }
+  
+  div.sign-in {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    background:#ffffffff;
+    padding:0px 1%;
+    width: 42%; 
+    min-width: 300px;
+    height:100vh;
+    >*{
+      padding:0.8em 0px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 4px 0;
+      display: -ms-flexbox;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+  
+    button {
+      background-color:#359559;
+      color: white;
+      padding: 0.5em 2em;
+      margin: 4px 2px;
+      border-radius: 2px;
+      cursor: pointer;
+      border:1px solid rgba(169, 240, 5); 
+    }
+  }
+  
+  .right{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    align-items: center;
+    height:100vh;
+    padding: 2em;
+    background-attachment: fixed;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    color:white;
+    font-family: Helvetica, Arial, sans-serif;
+  
+  }

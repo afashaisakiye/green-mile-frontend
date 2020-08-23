@@ -1,10 +1,16 @@
 .add-package{
     position: absolute;
-    display: flex;
-    justify-content: center;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 100%;
+    z-index: 4;
     background: rgba(0, 0, 0, 0.479);
     width: 100%;
-    >.modal{
-        display: block;
+        .modal-body{
+            max-height: 66vh;
+            overflow-y: scroll;   
     }
+    
 }

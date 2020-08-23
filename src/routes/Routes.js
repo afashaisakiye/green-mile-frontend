@@ -11,6 +11,7 @@ import PackagesPage from './../pages/PackagesPage';
 import UsersPage from './../pages/UsersPage';
 import AddUser from './../pages/AddUser';
 import userPage from './../pages/userPage';
+import Logout from './../pages/Logout'
 
 
 
@@ -28,7 +29,12 @@ const routes = [
   {
     path: "/sign-in",
     component: SignIn,
-    tests: [{ test: (!authed),redirect: "/"}]
+    //tests: [{ test: (!authed),redirect: "/"}]
+  },
+  {
+    path: "/logout",
+    component: Logout,
+    tests: [{ test: (authed),redirect: "/"}]
   },
   {
     path: "/",

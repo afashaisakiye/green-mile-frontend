@@ -1,4 +1,4 @@
-import React, {useState ,useContext, useHistory} from "react";
+import React, {useState ,useContext} from "react";
 import logo from './../../../public/img/logo.png'
 import { AuthContext } from './../../context/AuthContext';
 import { Redirect } from 'react-router-dom';
@@ -14,34 +14,27 @@ export default function SignIn(props) {
   }
   const [states,setStates]=useState({
     signing_in:false,
-    signed_in:false,
     error:false,
     page_after_sign_in
   })
-  const { signin } =useContext(AuthContext);
+  const { signin, authed, account_type_info } =useContext(AuthContext);
  
   const  submit= async(e)=>{
     e.preventDefault();
     setStates({...states,signing_in:true,error:false})
-    const x=await signin(e.target['username'].value,e.target['password'].value)
-    if(x!==true){
-      setStates({...states,signing_in:false,error:x.error_msg})
-      return;
-    }
-    setStates({...states,signed_in:true})
+    signin(e.target['username'].value,e.target['password'].value)
   }
 
   const {signing_in ,error,signed_in}=states;
-  if(signed_in){
+  
+  if(authed){
     return(
-      <Redirect to={page_after_sign_in}/>
+      <Redirect to={'/'}/>
     )
   }
   return (
     <div className="sign-in-container">
-      <div className="right">
-          <h1 className="quote">Welcome to Green Mile Platform, Let's Deliver the packages</h1>
-      </div>
+     
       <div className="sign-in">
         <img className="img" src={logo} alt="avatar" />
         <form onSubmit={submit} >
