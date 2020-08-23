@@ -1,0 +1,81 @@
+.app-header{
+    >.header-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px 5px 20px;
+        color: blue;
+        >.search{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            .fa-search{
+                position: absolute;
+                align-self: center;
+                left: 10px;
+            }
+            >input[type="search"]{
+                height: 50px;
+                border:1px solid darkgrey;
+                background: #cccccc;
+                padding-left:40px ;
+                border-radius: 4px;
+            }
+        }
+        >.profile-side{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 8%;
+            >*{
+                cursor: pointer;
+            }
+        >.notification{
+            font-size: 20px;
+        }
+        >.profile{
+            height: 50px;
+            position: relative;
+            img{
+                border-radius: 5px;
+                height: 100%;
+                border: 2px solid darkgrey;
+               
+            }
+
+            .profile-menu{
+                position: absolute;
+                right: 0px;
+                width: 200px;
+                text-align: right;
+                background: white;
+                border-right: 1px solid darkgrey;
+                border-bottom: 1px solid darkgrey;
+                border-radius: 5px;
+                padding: 2px 0px;
+                margin-top: 5px;
+                transition: 2s;
+                .profile-menu-list{
+                    padding:10px 0px;
+                    li{
+                        &:hover{
+                            background: #0ca30c;
+                            color: white;
+                        }
+                        display: flex;
+                        justify-content: flex-end;
+                        align-content: space-between;
+                        padding: 10px 10px;
+                        transition: 0.3s;
+                        >span{
+                            padding: 0px 10px;
+                        }
+                    }
+                }
+            }
+        }
+        }
+    }
+    
+
+}
