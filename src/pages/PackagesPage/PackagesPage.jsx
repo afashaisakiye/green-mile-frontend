@@ -1,4 +1,6 @@
 import React, { useContext ,useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import List from './../../components/List';
 import PackageCard from './../../components/PackageCard';
 
@@ -23,10 +25,22 @@ const PackagesPage=()=>{
    
     return (
         <>
-
-            <div className="board">
+            <Swiper
+                spaceBetween={120}
+                breakpoints={{
+                    // when window width is >= 640px
+                    360: {
+                      width:'80%',
+                      slidesPerView: 1.2,
+                    },
+                    // when window width is >= 768px
+                    768: {
+                      slidesPerView: 5,
+                    },
+                  }}
+            >
                 {package_status.map((list) => {
-                    return <List
+                    return <SwiperSlide key={list.id}  ><List
                         id={list.id}
                         onDragOver={(e)=>{e.preventDefault();}} 
                         onDrop={dropCardInList} key={list.id} 
@@ -44,10 +58,10 @@ const PackagesPage=()=>{
 
                     {(list.id==2 && account_type_info.id==3)&&(<AddPackageButton onClick={()=>setaddPakageModel(true)} />)
                     }
-                    </List>;
+                    </List></SwiperSlide>;
                 })
                 }
-            </div>
+        </Swiper>
        {(account_type_info.id==3 && addPakageModel)&&(<AddPackageModel closeAction={()=>setaddPakageModel(false)} />)}
         </>
     )
