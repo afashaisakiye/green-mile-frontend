@@ -1,27 +1,13 @@
-import React, {useContext } from "react";
-import Routes  from './../routes/Routes';
-
-import {AuthContext}  from "./../context/AuthContext";
-import { UIContext } from './../context/UIContext';
-import SideMenu from "./../components/SideMenu";
-import Header from "./../components/Header";
-//Pages
+import React , { useState } from "react";
+import Routes from './../routes/'
+import Board from '@lourenci/react-kanban'
+import '@lourenci/react-kanban/dist/styles.css'
 
 const App=(props)=>{
-const { authed } = useContext(AuthContext);
-const { sidemenu }=useContext(UIContext);
+      const [packages, setpackages] = useState()
+
     return (
-      <>
-        {authed && (
-          <div  className="menu">
-          <SideMenu menu={sidemenu} />
-          </div>
-        )}
-        <div className={((authed)?"authed ":"not-logedin ")+"page"}>
-          {authed &&(<Header />)}
-          <Routes />
-          </div>
-      </>
+        <Routes />
     );
 }
 
