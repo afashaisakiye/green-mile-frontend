@@ -38,11 +38,6 @@ const routes = [
   },
   {
     path: "/",
-    component: Index,
-    tests: [{ test: (authed),component: LandingPage}]
-  },
-  {
-    path: "/packages",
     component: PackagesPage,
     tests: [
         {test: authed,redirect: "/sign-in"},

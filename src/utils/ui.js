@@ -4,10 +4,6 @@ export const menu_items = [
     link_to: "/",
   },
   {
-    icon_class_name: "fas fa-box-open",
-    link_to: "/packages",
-  },
-  {
     icon_class_name: "fas fa-users",
     link_to: "/users",
   },
