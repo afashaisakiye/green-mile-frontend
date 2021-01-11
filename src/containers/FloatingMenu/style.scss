@@ -1,0 +1,34 @@
+
+.float{
+	position:fixed;
+	right:40px;
+	bottom:40px;
+	ul{
+		bottom: 60px;
+		list-style: none;
+		position: absolute;
+		padding: unset;
+		transition: all 5s ease-out;
+		li{
+			margin-top:1em ;
+		}
+	}
+
+	.button{
+		i{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-decoration: none;
+			width:40px;
+			height:40px;
+			background-color:#0C9;
+			color:#FFF;
+			border-radius:50px;
+			text-align:center;
+			box-shadow: 2px 2px 3px #999;
+			font-size: 1em;
+		}
+	}
+    
+}

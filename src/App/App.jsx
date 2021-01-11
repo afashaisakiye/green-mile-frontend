@@ -1,13 +1,17 @@
 import React , { useState } from "react";
 import Routes from './../routes/'
-import Board from '@lourenci/react-kanban'
-import '@lourenci/react-kanban/dist/styles.css'
+import { useSelector } from 'react-redux'
+
+import FloatingMenu from './../containers/FloatingMenu'
 
 const App=(props)=>{
-      const [packages, setpackages] = useState()
+    const authentication = useSelector(state => state.authentication)
 
     return (
+        <>
         <Routes />
+            {authentication&&<FloatingMenu />}
+        </>
     );
 }
 

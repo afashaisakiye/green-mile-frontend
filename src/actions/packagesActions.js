@@ -1,21 +1,22 @@
-export function addPackage() {
+export function addPackage(payload, column,position) {
     return {
-      type: 'ADD_TODO',
-      payload:{title, content}
+      type: 'ADD',
+      payload:payload,
+      column,
+      position
     }
   }
 
-export function deletePackage(id) {
+  export function updatePackage(payload) {
     return {
-      type: 'REMOVE_TODO',
-      payload:id
+      type: 'UPDATE',
+      payload
     }
   }
 
-
-  export function transferPackage(id, status) {
+  export function removePackage(id) {
     return {
-      type: 'CHANGE_STATUS',
+      type: 'DELETE',
       payload:id
     }
   }
