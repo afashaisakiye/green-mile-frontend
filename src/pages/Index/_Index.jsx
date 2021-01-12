@@ -3,9 +3,11 @@ import Board, { addCard , moveCard , removeCard} from '@lourenci/react-kanban'
 import { useSelector , useDispatch } from "react-redux";
 import './style.scss'
 
+import Card from './../../containers/Card'
+import ColumnHeader from './../../containers/ColumnHeader'
+
 import { load_packages, update_package_status } from './../../api/pacakges'
 import { account_type } from './../../api/auth'
-import Card from './../../containers/Card'
 import { updatePackage } from './../../actions/packagesActions'
 import {packagesToCards} from './../../utils/packages'
 
@@ -15,12 +17,7 @@ export default function Index() {
   const dispatch = useDispatch()
   
   const addcard =(e)=>{
-    const newBoard = addCard(board,{ id: 1 },{
-      id: 3,
-      title: "dfdfdfdff",
-      description: "SDfsfsf"
-    })
-    setBoard(newBoard)
+    console.log("adding a card")
   }
 
   const deletePackage=(e)=>{
@@ -53,6 +50,9 @@ export default function Index() {
           children={board}
           onCardDragEnd={packageMoved} 
           onRemoveCard = {deletePackage}
+          renderColumnHeader={({id,title})=>{
+           return <ColumnHeader columnid={id} title={title} addcard={addcard} />
+          }}
           renderCard={( card, dragging) =>{ 
             return <Card {...card } isDragging={dragging} />
           }}
