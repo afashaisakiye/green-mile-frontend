@@ -34,7 +34,8 @@ export default function packageReducer(state = initialState, action) {
         case 'ADD':
           return state
         case 'UPDATE':
-          return action.payload
+          console.log("updatinf state")
+          return {...action.payload}
         case 'DELETE':
           return state;
         default:

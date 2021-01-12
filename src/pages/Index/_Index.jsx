@@ -3,7 +3,7 @@ import Board, { addCard , moveCard , removeCard} from '@lourenci/react-kanban'
 import { useSelector , useDispatch } from "react-redux";
 import './style.scss'
 
-import { load_packages } from './../../api/pacakges'
+import { load_packages, update_package_status } from './../../api/pacakges'
 import { account_type } from './../../api/auth'
 import Card from './../../containers/Card'
 import { updatePackage } from './../../actions/packagesActions'
@@ -24,11 +24,18 @@ export default function Index() {
   }
 
   const deletePackage=(e)=>{
-    console.log(deleting)
   }
   
   const packageMoved = (card, source,destination)=>{
-      dispatch(updatePackage(moveCard(board,source,destination)))
+    const new_board  = moveCard(board,source,destination)
+    dispatch(updatePackage(new_board))
+      account_type(auth.token).then((res)=>{
+        update_package_status(auth.token, res.account_type,card.id,destination.toColumnId,source.fromColumnId).then(res=>{
+            if(!res){
+              dispatch(updatePackage(board))
+            }
+          })
+      })
   }
 
     useEffect(() => {
