@@ -1,8 +1,8 @@
 const initialState =  {
     authenticated: true,
-    username: 'supplier',
-    id: 4,
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InN1cHBsaWVyIn0.0k0AnWaRPJJZywQ9pyj1N6n8EP6ldOWOQcP-f29YpO0'
+    username: 'hubmanager',
+    id: 3,
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imh1Ym1hbmFnZXIifQ.tODfJNVVWx20qpaVsY-fhKxplmI8B8ivuFHUyt9Yx1I'
   }
 
 export default function authenticationReducer(state = initialState, action) {

@@ -11,6 +11,7 @@ export const account_type =async (token)=>{
     });
     return response.json(); // parses JSON response into native JavaScript objects
 }
+
 export const login = async (username , password) =>{
     const data = {username, password }
     try {

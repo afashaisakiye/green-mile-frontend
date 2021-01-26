@@ -1,5 +1,5 @@
 import React , { useState } from 'react'
-import AddCard from './../../components/AddCard'
+import AddCard from './../AddCard'
 function ColumnHeader({columnid, title, addcard}) {
     const [addingcard, toggle_adding_card] = useState(false)
     return (
