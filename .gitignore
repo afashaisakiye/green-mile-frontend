@@ -16,7 +16,7 @@ src/fonts/
 ehthumbs.db
 Thumbs.db
 v8-compile-cache-0/
-
+.cache/
 
 # VS code
 .vscode/

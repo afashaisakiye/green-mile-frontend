@@ -1,25 +1,12 @@
-.welcome-note{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+.react-kanban-column{
+    padding: 15px 10px;
+    border-radius: 2px;
+    background-color: #eee;
+    margin: 5px;
+    width: 300px;
 }
 
-.g-col.no-sumary-card{
-    .row{
-        margin-left:unset;
-        margin-right: unset;
-        padding:0px 20px ;
-        .card{
-            width: 333.3333px;
-            box-shadow: unset;
-            .card-header{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                >div{
-                    width: 114px;
-                }
-            }
-        }
-    }
+.react-kanban-column-header {
+    padding-bottom: 10px;
+    font-weight: bold;
 }

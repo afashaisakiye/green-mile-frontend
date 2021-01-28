@@ -1,0 +1,20 @@
+.columnheader{
+    .wrapper{
+        h4{
+            padding: unset;
+            margin: unset;
+        }
+        small.add-card{
+            background: rgb(219, 219, 219);
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+        }
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1em;
+    }
+}
