@@ -1,9 +1,12 @@
 import React , { useEffect , useState } from 'react'
 import SupplierSuggestionsInput from './../../components/SupplierSuggestionsInput'
 import ReceiverSuggestionInput from './../../components/ReceiverSuggestionInput'
-import { suppliers_suggetions } from "./../../api/suppliers";
 
+//apis used
+import { suppliers_suggetions  } from "./../../api/suppliers";
+import { receiver_suggetions } from "./../../api/receiver";
 import { useSelector } from "react-redux";
+import ExpandableTextInput from '../../components/ExpandableTextInput';
 
 
 function AddCard({ close_form, onsubmit }) {
@@ -12,9 +15,7 @@ function AddCard({ close_form, onsubmit }) {
     const [receivers, setreceivers] = useState([])
 
     const setReciversSuggestions= (data) =>{
-        console.log(data)
-        //get recievers from api
-        //set the data to setreceivers
+        receiver_suggetions(token,data.id).then((data)=>setreceivers(data))
     }
 
     useEffect(() => {
@@ -27,21 +28,10 @@ function AddCard({ close_form, onsubmit }) {
         <div draggable="true" onDragStart={(e) => e.preventDefault()} className="add-card">
             <div className="wrapper">
                 <form>
-                    <SupplierSuggestionsInput onSuggetionSelect={setReciversSuggestions} suppliers={suppliers} />
-                    <div className="form-group">
-                        <input type="text" className="form-control" id="package-name" aria-describedby="emailHelp" placeholder="package name" />
-                    </div>
+                    <ExpandableTextInput className="form-control" id='package-info' label="Package Info" placeholder="Package Name"   />
+                    <SupplierSuggestionsInput id="package_supplier" onSuggetionSelect={setReciversSuggestions} suppliers={suppliers} />
                     <ReceiverSuggestionInput receivers={receivers} onSuggetionSelect={(data) => console.log(data)} />
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlSelect1">Type</label>
-                        <select className="form-control" id="exampleFormControlSelect1">
-                            <option>Parcel</option>
-                            <option>Soft</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <input type="number" className="form-control" id="package-name" aria-describedby="emailHelp" placeholder="weight in kg" />
-                    </div>
+        
                     <div className="add-package-buttons">
                         <button type="submit" className="btn btn-primary">Save</button>
                         <button onClick={close_form} type="submit" className="btn btn-primary">DISCARD</button>

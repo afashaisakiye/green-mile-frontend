@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Autosuggest from 'react-autosuggest'
 import renderSuggestion from "./renderSuggestion";
+import ExpandableTextInput from "./../ExpandableTextInput";
 
 function ReceiverSuggestionInput({ receivers, onSuggetionSelect }) {
 
@@ -40,6 +41,9 @@ function ReceiverSuggestionInput({ receivers, onSuggetionSelect }) {
     const inputProps = {
       placeholder: "Reciever's Email ",
       value,
+      className:"form-control",
+      label:"Search Receiver",
+      id:'package-receiver',
       onChange
     };
   
@@ -50,6 +54,7 @@ function ReceiverSuggestionInput({ receivers, onSuggetionSelect }) {
         onSuggestionsClearRequested={onSuggestionsClearRequested}
         getSuggestionValue={(e, data) => getSuggestionValue(e, data)}
         renderSuggestion={renderSuggestion}
+        renderInputComponent={ExpandableTextInput}
         inputProps={inputProps}
       />
     )

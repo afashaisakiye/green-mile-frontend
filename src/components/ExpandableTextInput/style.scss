@@ -1,0 +1,12 @@
+.suggestion-input{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.suggestion-edit-button{
+    position: absolute;
+    right: 0.8em;
+    color: gray;
+    cursor: pointer;
+}

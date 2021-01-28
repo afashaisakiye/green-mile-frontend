@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Autosuggest from 'react-autosuggest'
 import renderSuggestion from "./renderSuggestion";
+import ExpandableTextInput from "./../ExpandableTextInput";
 
 function SupplierSuggestionsInput({ suppliers, onSuggetionSelect }) {
     const [suppliersugestions, setreciversugestions] = useState([]);
@@ -39,6 +40,9 @@ function SupplierSuggestionsInput({ suppliers, onSuggetionSelect }) {
     const inputProps = {
       placeholder: "Supplier",
       value,
+      label:"Search Supplier",
+      className:"form-control",
+      id:'package-supplier',
       onChange
     };
   
@@ -49,6 +53,7 @@ function SupplierSuggestionsInput({ suppliers, onSuggetionSelect }) {
         onSuggestionsClearRequested={onSuggestionsClearRequested}
         getSuggestionValue={(e, data) => getSuggestionValue(e, data)}
         renderSuggestion={renderSuggestion}
+        renderInputComponent={ExpandableTextInput}
         inputProps={inputProps}
       />
     )
