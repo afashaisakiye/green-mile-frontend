@@ -7,6 +7,7 @@ import { suppliers_suggetions  } from "./../../api/suppliers";
 import { receiver_suggetions } from "./../../api/receiver";
 import { useSelector } from "react-redux";
 import ExpandableTextInput from '../../components/ExpandableTextInput';
+import PacakgeInfoForm from '../PacakgeInfoForm';
 
 
 function AddCard({ close_form, onsubmit }) {
@@ -28,10 +29,9 @@ function AddCard({ close_form, onsubmit }) {
         <div draggable="true" onDragStart={(e) => e.preventDefault()} className="add-card">
             <div className="wrapper">
                 <form>
-                    <ExpandableTextInput className="form-control" id='package-info' label="Package Info" placeholder="Package Name"   />
+                    <ExpandableTextInput ExpandComponent={PacakgeInfoForm} className="form-control" id='package-info' label="Package Info" placeholder="Package Name"   />
                     <SupplierSuggestionsInput id="package_supplier" onSuggetionSelect={setReciversSuggestions} suppliers={suppliers} />
                     <ReceiverSuggestionInput receivers={receivers} onSuggetionSelect={(data) => console.log(data)} />
-        
                     <div className="add-package-buttons">
                         <button type="submit" className="btn btn-primary">Save</button>
                         <button onClick={close_form} type="submit" className="btn btn-primary">DISCARD</button>
